@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from "../src/components/Header";
+import { Router as BrowserRouter } from "react-router-dom";
 
 class App extends React.Component {
 
@@ -8,7 +9,6 @@ class App extends React.Component {
     <div className="App">
       <Header />
       <div className="container">
-        <h4>CarSavvy</h4>
       </div>
     </div>
   );
