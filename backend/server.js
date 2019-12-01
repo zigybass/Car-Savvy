@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
+// TO DO: Connect database
+
 const app = express();
 
 // Middleware
