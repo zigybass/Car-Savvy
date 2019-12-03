@@ -1,4 +1,4 @@
-$fontColor: rgb(255, 255, 255);
+$fontColor: rgb(230, 230, 230);
 
 
 body {
@@ -30,11 +30,23 @@ body {
     color: rgb(231, 231, 231);
 }
 
+.createAccountCont {
+    color: $fontColor;
+}
 
+#createForm {
+    margin-top: 5rem;
+}
 
-// #logo {
-//     float: right;
-//     font-size: 3.5rem;
-//     position: relative;
-//     font-family: 'Satisfy', cursive;
-// };
+.input-field label {
+    color:white;
+  }
+
+  .input-field input[type=text]:focus + label {
+    color: white;
+  }
+
+  .input-field input[type=text]:focus {
+    border-bottom: 1px solid white;
+    box-shadow: 0 1px 0 0 #000;
+  }

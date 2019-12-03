@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 function Login() {
@@ -22,7 +22,7 @@ function Login() {
             </div>
           </div>
         </div>
-        <Link to="/splash" >
+        <Link to="/splash">
           <button
             className="btn waves-effect yellow darken-1 black-text waves-dark"
             type="submit"
@@ -30,7 +30,7 @@ function Login() {
           >
             Login
           </button>
-          </Link>
+        </Link>
       </div>
     </React.Fragment>
   );
