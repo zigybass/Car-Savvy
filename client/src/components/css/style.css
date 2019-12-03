@@ -1,0 +1,8 @@
+body {
+    background-image: url("../css//porsche.jpg");
+    background-color: rgba(107, 107, 107, 0.726);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+};
