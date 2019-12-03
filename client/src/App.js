@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../src/components/Header";
 import Title from "../src/components/pages/Title";
+import Login from "../src/components/pages/Login";
 import OilChange from "../src/components/pages/OilChange";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "../src/components/css/style.scss";
@@ -18,6 +19,9 @@ class App extends React.Component {
             <Switch>
               <Route path="/splash">
                 <Title/>
+              </Route>
+              <Route path="/login">
+                <Login />
               </Route>
               <Route path="/oilchange">
                 <OilChange/>
