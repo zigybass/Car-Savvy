@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
@@ -21,6 +22,15 @@ function Login() {
             </div>
           </div>
         </div>
+        <Link to="/splash" >
+          <button
+            className="btn waves-effect yellow darken-1 black-text waves-dark"
+            type="submit"
+            name="action"
+          >
+            Login
+          </button>
+          </Link>
       </div>
     </React.Fragment>
   );
