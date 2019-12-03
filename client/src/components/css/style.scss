@@ -1,0 +1,32 @@
+$fontColor: rgb(255, 255, 255);
+
+
+body {
+    background-image: url("../css//porsche.jpg");
+    background-color: rgba(97, 97, 97, 0.842);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+};
+
+#title {
+    font-family: 'Satisfy', cursive;
+    color: $fontColor;
+    font-size: 3.8rem;
+    float: right;
+    margin-top: 5.5rem;
+}
+
+.oilTitle {
+    color: $fontColor;
+}
+
+
+
+// #logo {
+//     float: right;
+//     font-size: 3.5rem;
+//     position: relative;
+//     font-family: 'Satisfy', cursive;
+// };

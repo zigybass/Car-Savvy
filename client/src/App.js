@@ -1,9 +1,9 @@
 import React from "react";
 import Header from "../src/components/Header";
-import Splash from "../src/components/pages/Splash";
-import Menu from "../src/components/pages/Menu";
+import Title from "../src/components/pages/Title";
+import OilChange from "../src/components/pages/OilChange";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import "../src/components/css/style.css";
+import "../src/components/css/style.scss";
 
 class App extends React.Component {
 
@@ -11,14 +11,16 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          <Header />
-          <div className="container">
+          <div className="container mainApp">
+            <Header />
+
+  
             <Switch>
               <Route path="/splash">
-                <Splash/>
+                <Title/>
               </Route>
-              <Route path="/menu">
-                <Menu/>
+              <Route path="/oilchange">
+                <OilChange/>
               </Route>
               <Route path="/oilchange">
               </Route>
