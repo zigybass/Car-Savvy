@@ -15,10 +15,10 @@ import rootReducer from "./reducers/index";
 //   }
 // }
 
-const appState = {
-  username: "",
-  password: ""
-}
+const appState = [{
+  username: "test",
+  password: "test"
+}]
 
 // Store
 const store = createStore(rootReducer, appState)
