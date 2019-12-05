@@ -15,19 +15,13 @@ import rootReducer from "./reducers/index";
 //   }
 // }
 
-const appState = [{
-  username: "test",
-  password: "test"
-}]
+const appState = {
+  username: "",
+  password: ""
+};
 
 // Store
 const store = createStore(rootReducer, appState)
-
-// Dispatching Actions to Store
-store.dispatch({
-  type: 'ADD_TODO',
-  text: 'Read the docs'
-});
 
 console.log(store.getState())
 

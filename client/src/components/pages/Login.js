@@ -5,25 +5,33 @@ import { connect } from "react-redux";
 import { USER_TEXT, SUBMIT_USER, PASS_TEXT } from "../../redux/reducers/types";
 
 class Login extends React.Component {
+
   onChange = e => {
-    const text = { [e.target.name]: e.target.value };
-    console.log(text);
-    store.dispatch({
-      type: USER_TEXT,
-      text: text
-    });
+    console.log(store.getState())
+    const text = {[e.target.name]: e.target.value}
+    if (text.hasOwnProperty("username")) {
+      store.dispatch({
+        type: USER_TEXT,
+        text: text
+      })
+    } else if (text.hasOwnProperty("password")) {
+      store.dispatch({
+        type: PASS_TEXT,
+        text: text
+      })
+    }
   };
 
   onSubmit = e => {
     e.preventDefault();
-    const user = {
-      username: "funfun",
-      password: "funfun"
-    };
-    store.dispatch({
-      type: SUBMIT_USER,
-      text: user
-    });
+    const { input } = store.getState();
+    console.log("Username: " + input.username);
+    console.log("Password: " + input.password);
+
+    // store.dispatch({
+    //   type: SUBMIT_USER,
+    //   user: user
+    // });
   };
 
   render() {
@@ -75,6 +83,5 @@ class Login extends React.Component {
   }
 }
 
-connect()(Login);
 
-export default Login;
+export default connect(null)(Login);

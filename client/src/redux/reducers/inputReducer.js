@@ -1,13 +1,14 @@
 import { SUBMIT_USER, USER_TEXT, PASS_TEXT } from "./types";
 
 function inputReducer(state = [], action) {
+  console.log(action)
     switch (action.type) {
       case USER_TEXT:
-        return state.concat([action.text])
+        return state.username = action.text
       case PASS_TEXT:
-        return state.concat([action.text])
+        return state.password = action.text
       case SUBMIT_USER:
-        return state.concat([action.text])
+        return state.user = action.user
       default:
         return state
     }
