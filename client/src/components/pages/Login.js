@@ -1,8 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import store from "../../redux/store";
+import { connect } from "react-redux";
 
-function Login() {
+class Login extends React.Component {
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    const user = {
+      username: "funfun",
+      password: "funfun"
+    };
+    store.dispatch({
+      type: 'SUBMIT_USER',
+      text: user
+    })
+  }
+  
+  render () {
   return (
+
     <React.Fragment>
       <div className="container">
         <div id="loginDesc">
@@ -22,11 +39,12 @@ function Login() {
             </div>
           </div>
         </div>
-        <Link to="/splash">
+        <Link>
           <button
             className="btn waves-effect yellow darken-1 black-text waves-dark"
             type="submit"
             name="action"
+            onClick={this.onSubmit}
           >
             Login
           </button>
@@ -34,6 +52,9 @@ function Login() {
       </div>
     </React.Fragment>
   );
+  }
 }
+
+connect()(Login);
 
 export default Login;

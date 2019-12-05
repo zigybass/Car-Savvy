@@ -1,9 +1,9 @@
-$fontColor: rgb(230, 230, 230);
+$fontColor: rgb(43, 43, 43);
 
 
 body {
     background-image: url("../css//porsche.jpg");
-    background-color: rgba(97, 97, 97, 0.842);
+    // background-color: rgba(73, 73, 73, 0.459);
     background-blend-mode: multiply;
     background-size: cover;
     background-repeat: no-repeat;
@@ -39,11 +39,11 @@ body {
 }
 
 .input-field label {
-    color:white;
+    color: $fontColor;
   }
 
   .input-field input[type=text]:focus + label {
-    color: white;
+    color: $fontColor;
   }
 
   .input-field input[type=text]:focus {
@@ -53,4 +53,8 @@ body {
 
   h5 {
       color: $fontColor;
+  }
+
+  #loginDesc {
+      margin-top: 40px;
   }
