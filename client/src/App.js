@@ -11,6 +11,7 @@ import "../src/components/css/style.scss";
 
 class App extends React.Component {
 
+
   render() {
     return (
       <Provider store={store}>

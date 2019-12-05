@@ -8,7 +8,7 @@ function Title () {
             <h4 id="title">CarSavvy</h4>
             </div>
             <div>
-                <Button />
+                <Button name="Login"/>
             </div>
         </React.Fragment>
     )

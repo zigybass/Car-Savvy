@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Button() {
+function Button(props) {
   return (
     <div>
       <Link to="/login">
@@ -10,7 +10,7 @@ function Button() {
           type="submit"
           name="action"
         >
-          Login
+          {props.name}
         </button>
       </Link>
     </div>
