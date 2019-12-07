@@ -4,9 +4,9 @@ function inputReducer(state = [], action) {
   console.log(action)
     switch (action.type) {
       case USER_TEXT:
-        return state.username = action.text
+        return {username: action.text}
       case PASS_TEXT:
-        return state.password = action.text
+        return {...state, password: action.text}
       case SUBMIT_USER:
         return state.user = action.user
       default:
@@ -14,4 +14,4 @@ function inputReducer(state = [], action) {
     }
   }
 
-  export default inputReducer;
+  export default inputReducer;    

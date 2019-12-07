@@ -6,6 +6,10 @@ import { USER_TEXT, SUBMIT_USER, PASS_TEXT } from "../../redux/reducers/types";
 
 class Login extends React.Component {
 
+  componentDidMount () {
+    console.log(store.getState())
+  }
+
   onChange = e => {
     console.log(store.getState())
     const text = {[e.target.name]: e.target.value}
@@ -25,8 +29,8 @@ class Login extends React.Component {
   onSubmit = e => {
     e.preventDefault();
     const { input } = store.getState();
-    console.log("Username: " + input.username);
-    console.log("Password: " + input.password);
+    console.log("Username: " + input.username.username);
+    console.log("Password: " + input.password.password);
 
     // store.dispatch({
     //   type: SUBMIT_USER,

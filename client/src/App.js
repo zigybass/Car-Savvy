@@ -23,7 +23,7 @@ class App extends React.Component {
 
   
             <Switch>
-              <Route path="/splash">
+              <Route exact path="/">
                 <Title/>
               </Route>
               <Route path="/login">

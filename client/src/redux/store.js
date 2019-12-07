@@ -16,8 +16,6 @@ import rootReducer from "./reducers/index";
 // }
 
 const appState = {
-  username: "",
-  password: ""
 };
 
 // Store
