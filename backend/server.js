@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 
 const app = express();
 
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/carSavvy"
+
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

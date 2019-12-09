@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import store from "../../redux/store";
 import { connect } from "react-redux";
-import { USER_TEXT, SUBMIT_USER, PASS_TEXT } from "../../redux/reducers/types";
+import { USER_TEXT, PASS_TEXT } from "../../redux/reducers/types";
+const axios = require("axios");
 
 class Login extends React.Component {
 
@@ -30,14 +31,18 @@ class Login extends React.Component {
   onSubmit = e => {
     e.preventDefault();
     const { input } = store.getState();
-    console.log(input);
-    console.log("Username: " + input.username);
-    console.log("Password: " + input.password);
-
-    // store.dispatch({
-    //   type: SUBMIT_USER,
-    //   user: user
-    // });
+    const user = {
+      username: input.username,
+      password: input.password
+    }
+    console.log(user)
+    axios.post("/user/login", user).then(err => {
+      if (err) {
+        console.log(err)
+      } else {
+        console.log("user logged in")
+      }
+    })
   };
 
   render() {
