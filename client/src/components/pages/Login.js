@@ -12,13 +12,14 @@ class Login extends React.Component {
 
   onChange = e => {
     console.log(store.getState())
-    const text = {[e.target.name]: e.target.value}
-    if (text.hasOwnProperty("username")) {
+    const inputName = e.target.name;
+    const text = e.target.value;
+    if (inputName === "username") {
       store.dispatch({
         type: USER_TEXT,
         text: text
       })
-    } else if (text.hasOwnProperty("password")) {
+    } else if (inputName === "password") {
       store.dispatch({
         type: PASS_TEXT,
         text: text
@@ -29,8 +30,9 @@ class Login extends React.Component {
   onSubmit = e => {
     e.preventDefault();
     const { input } = store.getState();
-    console.log("Username: " + input.username.username);
-    console.log("Password: " + input.password.password);
+    console.log(input);
+    console.log("Username: " + input.username);
+    console.log("Password: " + input.password);
 
     // store.dispatch({
     //   type: SUBMIT_USER,
