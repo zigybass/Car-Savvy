@@ -13,11 +13,15 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true }).then(() => {
 
 const db = mongoose.connection;
 
+db.on('error', console.error.bind(console, 'connection error:'));
+
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
+
+require("../backend/api-routes/api-routes.js")(app);
 
 app.listen(PORT, () => {
   console.log("Server listening on PORT: " + PORT);

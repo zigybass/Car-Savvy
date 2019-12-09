@@ -1,3 +1,5 @@
-const mongoose = require("mongoose");
+'use strict';
 
-// Setup models for DB
+module.exports = {
+    User: require("./User.js")
+}
