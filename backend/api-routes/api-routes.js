@@ -1,9 +1,9 @@
 
 module.exports = function(app) {
-    app.get('/api/login', function (req, res) {
+    app.post('/api/login', function (req, res) {
         res.json({
-            message: "Backed in login"
+            message: "Backend hit"
         })
-        console.log("Login hits backend")
+        console.log("Login hits backend with: " + req.body.username)
     })
 }

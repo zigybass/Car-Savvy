@@ -38,9 +38,8 @@ class Login extends React.Component {
     console.log(user)
     
 
-    axios.get('/api/login').then( res => {
+    axios.post('/api/login', user).then( res => {
       console.log(res.data)
-      console.log("Logged in!")
     }).catch(err => {
       console.log(err.response)
     })
