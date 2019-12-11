@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-
-// TO DO: Connect database
+const cors = require("cors");
 
 const app = express();
 
@@ -18,10 +17,13 @@ db.on('error', console.error.bind(console, 'connection error:'));
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 const PORT = process.env.PORT || 5000;
 
-require("../backend/api-routes/api-routes.js")(app);
+require("./api-routes/api-routes.js")(app);
+// require("../backend/api-routes/api-routes.js")(app);
+
 
 app.listen(PORT, () => {
   console.log("Server listening on PORT: " + PORT);

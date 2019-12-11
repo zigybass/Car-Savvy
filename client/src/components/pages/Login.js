@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import store from "../../redux/store";
 import { connect } from "react-redux";
 import { USER_TEXT, PASS_TEXT } from "../../redux/reducers/types";
-const axios = require("axios");
+import axios from "axios";
 
 class Login extends React.Component {
 
@@ -36,14 +36,15 @@ class Login extends React.Component {
       password: input.password
     }
     console.log(user)
-    axios.post("/user/login", user).then(err => {
-      if (err) {
-        console.log(err)
-      } else {
-        console.log("user logged in")
-      }
+    
+
+    axios.get('/api/login').then( res => {
+      console.log(res.data)
+      console.log("Logged in!")
+    }).catch(err => {
+      console.log(err.response)
     })
-  };
+  }
 
   render() {
     return (
