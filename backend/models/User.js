@@ -12,5 +12,10 @@ const UserSchema = new Schema({
     },
     car: {
         type: String
+    },
+    mileage: {
+        type: Number
     }
 })
+
+export default UserSchema;

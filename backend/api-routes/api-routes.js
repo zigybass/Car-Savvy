@@ -4,6 +4,6 @@ module.exports = function(app) {
         res.json({
             message: "Backend hit"
         })
-        console.log("Login hits backend with: " + req.body.username)
+        console.log("Login hits backend with: " + req.body)
     })
 }

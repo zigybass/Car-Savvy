@@ -62,7 +62,7 @@ class Login extends React.Component {
                   type="text" 
                   onChange={this.onChange} 
                   name="username" />
-                <label for="first_name">Username</label>
+                <label htmlFor="first_name">Username</label>
               </div>
             </div>
             <div className="row">
