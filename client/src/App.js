@@ -7,7 +7,7 @@ import CreateAccount from "../src/components/pages/CreateAccount";
 import Menu from "../src/components/pages/Menu";
 import Button from "./components/Button";
 import OilChange from "../src/components/pages/OilChange";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../src/redux/store";
 import "../src/components/css/style.scss";
@@ -24,9 +24,9 @@ class App extends React.Component {
               <Switch>
                 <Route exact path="/">
                   <Title />
-                  <div>
+                  <Link to="/login">
                     <Button name="Login" />
-                  </div>
+                  </Link>
                 </Route>
                 <Route path="/login">
                   <Login />
