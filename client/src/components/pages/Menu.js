@@ -1,4 +1,5 @@
 import React from "react";
+import Title from "../pages/Title";
 
 class Menu extends React.Component {
 
@@ -6,9 +7,7 @@ class Menu extends React.Component {
 
         return  (
 
-            <div className="container">
-                <h3>This is the Menu page</h3>
-            </div>
+            <Title />
 
         )
     }

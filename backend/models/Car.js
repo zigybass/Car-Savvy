@@ -16,6 +16,9 @@ const carSchema = new Schema ({
     },
     color: {
         type: String
+    },
+    mileage: {
+        type: Number
     }
 });
 
