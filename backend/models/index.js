@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = {
-    User: require("./User.js")
+    User: require("./User.js"),
+    Car: require("./Car")
 }
