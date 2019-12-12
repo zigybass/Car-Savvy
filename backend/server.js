@@ -6,7 +6,13 @@ const app = express();
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/carSavvy";
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true }).then(() => {
+mongoose.connect(
+  MONGODB_URI, 
+  { 
+  useNewUrlParser: true,
+  autoIndex: false
+ }
+ ).then(() => {
   console.log("MongoDB connected.");
 });
 

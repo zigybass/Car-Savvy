@@ -1,4 +1,4 @@
-
+const User = require("../models/User");
 
 module.exports = function(app) {
 
@@ -13,6 +13,15 @@ module.exports = function(app) {
     app.post("/api/users", (req, res) => {
         res.json({
             message: "New User created!"
+        })
+        User.create(req.body).then( res => {
+            res.json({
+                message: "User created"
+            })
+        }).catch( err => {
+            res.status(500).json({
+                error: err.message
+            })
         })
         console.log(JSON.stringify(req.body))
     })

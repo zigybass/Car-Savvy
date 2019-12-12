@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
+const userSchema = new Schema({
     userId: {
         type: Number,
         unique: true
@@ -19,4 +19,6 @@ const UserSchema = new Schema({
     }
 })
 
-export default UserSchema;
+const User = mongoose.model("User", userSchema);
+
+module.exports = User;
