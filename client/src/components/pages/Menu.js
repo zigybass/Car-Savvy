@@ -1,5 +1,6 @@
 import React from "react";
 import Title from "../pages/Title";
+import Button from "../Button";
 
 class Menu extends React.Component {
 
@@ -7,7 +8,10 @@ class Menu extends React.Component {
 
         return  (
 
-            <Title />
+            <div className="container">
+                <Title />
+                <Button id="findCarBtn" name="Find Car"/>
+            </div>
 
         )
     }

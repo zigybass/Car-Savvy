@@ -25,7 +25,7 @@ class App extends React.Component {
                 <Route exact path="/">
                   <Title />
                   <Link to="/login">
-                    <Button name="Login" />
+                    <Button id="loginBtn" name="Login" />
                   </Link>
                 </Route>
                 <Route path="/login">
