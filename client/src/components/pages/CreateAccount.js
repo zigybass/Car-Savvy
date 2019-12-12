@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import store from "../../redux/store";
 import { connect } from "react-redux";
 import { FIRST_TEXT, USER_TEXT, PASS_TEXT } from "../../redux/reducers/types";
+import axios from "axios";
 
 class CreateAccount extends React.Component {
 
@@ -39,14 +40,18 @@ class CreateAccount extends React.Component {
 
   onSubmit = e => {
     e.preventDefault();
-    console.log(store.getState())
     const { input } = store.getState();
     const newUser = {
       firstName: input.firstName,
       username: input.username,
       password: input.password
     }
-    console.log(newUser)
+    console.log(newUser);
+    axios.post("/api/users", newUser).then( res => {
+      console.log(res)
+    }).catch( err => {
+      console.log("Error: " + err)
+    })
   }
 
   render () {

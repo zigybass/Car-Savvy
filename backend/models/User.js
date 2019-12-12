@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
+    userId: {
+        type: Number,
+        unique: true
+    },
     firstName: {
         type: String,
         unique: false,
@@ -10,11 +14,8 @@ const UserSchema = new Schema({
         type: String,
         unique: true
     },
-    car: {
+    password: {
         type: String
-    },
-    mileage: {
-        type: Number
     }
 })
 
