@@ -1,8 +1,11 @@
 
+
 module.exports = function(app) {
+
+    // Needs authentication here
     app.post('/api/login', function (req, res) {
         res.json({
-            message: "Backend hit"
+            message: "Logged in!"
         })
         console.log("Login hits backend with: " + req.body)
     })
