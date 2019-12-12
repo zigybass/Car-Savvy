@@ -1,5 +1,5 @@
 # CarSavvy
 
-## App currently in development by Chris Zeigler.
+### App currently in development by Chris Zeigler.
 
-## Details coming soon
+### Details coming soon
