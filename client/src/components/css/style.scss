@@ -1,68 +1,88 @@
 $fontColor: rgb(43, 43, 43);
 
-
 body {
-    background-image: url("../css//porsche.jpg");
-    // background-color: rgba(65, 65, 65, 0.205);
-    background-blend-mode: multiply;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-};
+  background-image: url("../css//porsche.jpg");
+  // background-color: rgba(65, 65, 65, 0.205);
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
 #title {
-    font-family: 'Satisfy', cursive;
-    color: $fontColor;
-    font-size: 3.8rem;
-    float: right;
-    margin-top: 5.5rem;
+  font-family: "Satisfy", cursive;
+  color: $fontColor;
+  font-size: 3.8rem;
+  float: right;
+  margin-top: 5.5rem;
+  animation: circle 1s ease-in;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+  // animation: blur 250ms;
 }
 
 .oilTitle {
-    color: $fontColor;
+  color: $fontColor;
 }
 
 #loginForm {
-    margin-top: 6rem;
+  margin-top: 6rem;
 }
 
 #fun {
-    color: rgb(231, 231, 231);
+  color: rgb(231, 231, 231);
 }
 
 .createAccountCont {
-    color: $fontColor;
+  color: $fontColor;
 }
 
 #createForm {
-    margin-top: 5rem;
+  margin-top: 5rem;
 }
 
 .input-field label {
-    color: $fontColor;
-  }
+  color: $fontColor;
+}
 
-  .input-field input[type=text]:focus + label {
-    color: $fontColor;
-  }
+.input-field input[type="text"]:focus + label {
+  color: $fontColor;
+}
 
-  .input-field input[type=text]:focus {
-    border-bottom: 1px solid white;
-    box-shadow: 0 1px 0 0 #000;
-  }
+.input-field input[type="text"]:focus {
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 #000;
+}
 
-  h5 {
-      color: $fontColor;
-  }
+h5 {
+  color: $fontColor;
+}
 
-  #loginDesc {
-      margin-top: 40px;
-  }
+#loginDesc {
+  margin-top: 40px;
+}
 
-  #findCarBtn {
-      margin-top: 80px;
-  }
+#findCarBtn {
+}
 
-  #loginBtn {
-      margin-top: 80px;
+#loginBtn {
+}
+
+@keyframes circle {
+  from {
+    transform: translateX(400px);
+    -webkit-filter: blur(3px);
   }
+  to {
+    transform: translateX(0px);
+    -webkit-filter: blur(0px);
+  }
+}
+
+//   .blur { animation: blur 250ms; }
+
+// @keyframes blur {
+//   0% { -webkit-filter: blur(6px); }
+//   50% { -webkit-filter: blur(3px); }
+//   100% { -webkit-filter: blur(0px); }
+// }
