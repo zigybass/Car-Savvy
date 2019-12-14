@@ -15,7 +15,7 @@ body {
   font-size: 3.8rem;
   float: right;
   margin-top: 5.5rem;
-  animation: circle 1s ease-in;
+  animation: titleSlide 1s ease-in;
   animation-timing-function: ease-in-out;
   -webkit-animation-timing-function: ease-in-out;
   // animation: blur 250ms;
@@ -68,15 +68,23 @@ h5 {
 #loginBtn {
 }
 
-@keyframes circle {
+@keyframes titleSlide {
   from {
-    transform: translateX(400px);
+    transform: translateX(500px);
     -webkit-filter: blur(3px);
   }
   to {
     transform: translateX(0px);
     -webkit-filter: blur(0px);
   }
+}
+
+#oilBtn {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  background: grey;
+  text-align: center;
 }
 
 //   .blur { animation: blur 250ms; }
