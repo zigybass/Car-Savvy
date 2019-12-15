@@ -18,8 +18,9 @@ body {
   animation: titleSlide 1s ease-in;
   animation-timing-function: ease-in-out;
   -webkit-animation-timing-function: ease-in-out;
-  // animation: blur 250ms;
 }
+
+
 
 .oilTitle {
   color: $fontColor;
@@ -79,18 +80,29 @@ h5 {
   }
 }
 
-#oilBtn {
+#bubbleLink {
   width: 95px;
   height: 95px;
+  margin: 0px 30px;
   border-radius: 50%;
-  background: grey;
+  background: rgb(51, 51, 51);
   text-align: center;
+  color: rgb(235, 235, 235);
 }
 
-//   .blur { animation: blur 250ms; }
+#bubbleLink:hover {
+  cursor: pointer;
+}
 
-// @keyframes blur {
-//   0% { -webkit-filter: blur(6px); }
-//   50% { -webkit-filter: blur(3px); }
-//   100% { -webkit-filter: blur(0px); }
-// }
+#buttonRow {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+
+#bubbleText {
+  margin-top: 38px;
+  font-size: 1.1rem;
+}

@@ -5,22 +5,24 @@ import BubbleLink from "../BubbleLink";
 
 class Menu extends React.Component {
 
-    render () {
-
-        return  (
-
-            <div className="container">
-                <Title />
-                <Button id="findCarBtn" name="Find Car"/>
-                <BubbleLink name="Oil Change" />
-                <BubbleLink name="Tire Rotation"/>
-                <BubbleLink name="Repairs"/>
-            </div>
-
-        )
-    }
-
-
+  render() {
+    return (
+      <div className="container">
+        <div>
+          <Title />
+          <Button id="findCarBtn" name="Find Car" />
+        </div>
+        <div className="row">
+          <div id="buttonRow">
+            <BubbleLink name="Oil Change" />
+            <BubbleLink name="Tire Rotation" />
+            <BubbleLink name="Repairs" />
+            <BubbleLink name="Recalls" />
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Menu;
