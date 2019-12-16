@@ -7,6 +7,7 @@ import CreateAccount from "../src/components/pages/CreateAccount";
 import Menu from "../src/components/pages/Menu";
 import Button from "./components/Button";
 import OilChange from "../src/components/pages/OilChange";
+import TireRotation from "../src/components/pages/TireRotation";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../src/redux/store";
@@ -24,9 +25,14 @@ class App extends React.Component {
               <Switch>
                 <Route exact path="/">
                   <Title />
-                  <Link to="/login">
-                    <Button id="loginBtn" name="Login" />
-                  </Link>
+                  <div id="accountBtnRow">
+                    <Link to="/login">
+                      <Button id="loginBtn" name="Login" />
+                    </Link>
+                    <Link to="/createAccount">
+                      <Button id="createAccBtn" name="Create Account"/>
+                    </Link>
+                  </div>
                 </Route>
                 <Route path="/login">
                   <Login />
@@ -37,8 +43,11 @@ class App extends React.Component {
                 <Route path="/menu">
                   <Menu />
                 </Route>
-                <Route path="/oilchange">
+                <Route path="/oilChange">
                   <OilChange />
+                </Route>
+                <Route path="/tireRotation">
+                  <TireRotation />
                 </Route>
                 <Route path="/oilchange"></Route>
                 <Route>

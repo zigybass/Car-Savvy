@@ -14,10 +14,10 @@ class Menu extends React.Component {
         </div>
         <div className="row">
           <div id="buttonRow">
-            <BubbleLink name="Oil Change" />
-            <BubbleLink name="Tire Rotation" />
-            <BubbleLink name="Repairs" />
-            <BubbleLink name="Recalls" />
+            <BubbleLink name="Oil Change" to="/oilChange"/>
+            <BubbleLink name="Tire Rotation" to="/tireRotation"/>
+            <BubbleLink name="Repairs" to="/repairs"/>
+            <BubbleLink name="Recalls" to="/recalls"/>
           </div>
         </div>
       </div>
