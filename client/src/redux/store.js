@@ -16,7 +16,6 @@ import rootReducer from "./reducers/index";
 // }
 
 const appState = {
-    test: "Jon"
 };
 
 // Store

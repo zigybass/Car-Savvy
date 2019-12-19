@@ -24,8 +24,6 @@ class App extends React.Component {
               <Switch>
                 <Route exact path="/">  
                   <Title />
-                  <div id="accountBtnRow">
-                  </div>
                 </Route>
                 <Route path="/login">
                   <Login />

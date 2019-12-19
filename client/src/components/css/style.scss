@@ -110,7 +110,6 @@ h5 {
   height: 100%;
   margin-left: 45px;
   background: rgba(24, 24, 24, 0.92);
-  animation: navSlide 1.6s ease-in;
   animation-timing-function: ease-in-out;
   -webkit-animation-timing-function: ease-in-out;
 }
@@ -118,7 +117,7 @@ h5 {
 @keyframes titleSlide {
   from {
     transform: translateX(500px);
-    -webkit-filter: blur(3px);
+    -webkit-filter: blur(2.5px);
   }
   to {
     transform: translateX(0px);
@@ -129,11 +128,24 @@ h5 {
 @keyframes navSlide {
   from {
     transform: translateX(-300px);
-    -webkit-filter: blur(2px);
+    -webkit-filter: blur(1.2px);
   }
   to {
     transform: translateX(0px);
     -webkit-filter: blur(0px);
+  }
+}
+
+@keyframes navSlideOut {
+  from {
+    transform: translateX(0px);
+    -webkit-filter: blur(0px);
+  }
+  to {
+    transform: translateX(0px);
+    -webkit-filter: blur(0px);
+    transform: translateX(-300px);
+    -webkit-filter: blur(2px);
   }
 }
 
