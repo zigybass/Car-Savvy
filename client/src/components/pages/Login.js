@@ -8,7 +8,7 @@ import axios from "axios";
 class Login extends React.Component {
 
   componentDidMount () {
-    console.log(store.getState())
+    console.log(store.getState());
   }
 
   onChange = e => {

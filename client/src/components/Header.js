@@ -1,17 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import Button from "./Button";
 
 class Header extends React.Component {
   render() {
     return (
       <div id="headerNav">
-            <ul id="nav-mobile" className="right hide-on-med-and-down">
-              <li>
-              </li>
-              <li>
-              </li>
-              <li>
-              </li>
-            </ul>
+        <Link to="/login">
+          <Button id="loginBtn" name="Login" />
+        </Link>
+        <Link to="/createAccount">
+          <Button id="createAccBtn" name="Create Account" />
+        </Link>
       </div>
     );
   }

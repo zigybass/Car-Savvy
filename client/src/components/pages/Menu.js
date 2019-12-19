@@ -1,5 +1,4 @@
 import React from "react";
-import Title from "../pages/Title";
 import Button from "../Button";
 import BubbleLink from "../BubbleLink";
 
@@ -9,7 +8,6 @@ class Menu extends React.Component {
     return (
       <div className="container">
         <div>
-          <Title />
           <Button id="findCarBtn" name="Find Car" />
         </div>
         <div className="row">
