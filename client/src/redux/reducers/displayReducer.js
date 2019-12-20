@@ -7,7 +7,7 @@ const initialState = {
 function displayReducer (state = initialState, action) {
     switch (action.type) {
         case HEADER_MOVE:
-            return JSON.parse(JSON.stringify(Object.assign(state, {headerOpen: true})))
+            return {...state, headerOpen: true}
         default:
             return state;
     }

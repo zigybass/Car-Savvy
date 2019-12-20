@@ -21,15 +21,6 @@ class App extends React.Component {
 
   render() {
 
-    // const { display } = store.getState();
-    // let style = {
-    //   animation: "navSlide 1.4s ease-in"
-    // }
-
-    // if ( display.headerOpen === false ) {
-    //   style = "navSlideOut 1.2s ease-in"
-    // }
-
     return (
       <Provider store={store}>
         <Router>

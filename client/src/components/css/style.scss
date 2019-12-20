@@ -41,7 +41,7 @@ body {
 }
 
 .input-field label {
-  color: $fontColor;
+  color: rgb(231, 231, 231);
 }
 
 .input-field input[type="text"]:focus + label {
@@ -54,11 +54,12 @@ body {
 }
 
 h5 {
-  color: $fontColor;
+  color: rgb(231, 231, 231);
 }
 
 #loginDesc {
   margin-top: 40px;
+  color: rgb(231, 231, 231);
 }
 
 #findCarBtn {
@@ -107,17 +108,17 @@ h5 {
 .headerNav {
   position: fixed;
   top: 0;
-  // width: 240px;
+  width: 18%;
   height: 100%;
   margin-left: 3rem;
   background: rgba(24, 24, 24, 0.93);
   animation: navSlide 1.5s ease-in;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in;
   -webkit-animation-timing-function: ease-in-out;
 }
 
 .headerNavSlide {
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 90%;
   height: 100%;
@@ -126,12 +127,13 @@ h5 {
   animation: navSlideOut 1s ease-in-out;
   animation-timing-function: ease-in-out;
   -webkit-animation-timing-function: ease-in-out;
+  z-index: -1;
 }
 
 @keyframes titleSlide {
   from {
     transform: translateX(500px);
-    -webkit-filter: blur(2.5px);
+    -webkit-filter: blur(15px);
   }
   to {
     transform: translateX(0px);
@@ -142,7 +144,7 @@ h5 {
 @keyframes navSlide {
   from {
     transform: translateX(-300px);
-    -webkit-filter: blur(1.2px);
+    -webkit-filter: blur(1.8px);
   }
   to {
     transform: translateX(0px);
@@ -154,12 +156,17 @@ h5 {
   from {
     // transform: translateX(0px);
     -webkit-filter: blur(0px);
-    width: 240px;
+    width: 18%;
   }
   to {
     // transform: translateX(300px);
     -webkit-filter: blur(2px);
     width: 90%;
   }
+}
+
+@keyframes fadeInLogin {
+  from{}
+  to{}
 }
 
