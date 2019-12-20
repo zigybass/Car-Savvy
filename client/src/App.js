@@ -33,7 +33,7 @@ class App extends React.Component {
                   <Title />
                 </Route>
                 <Route path="/login">
-                  <Login />
+                  <Login id="loginComp" />
                 </Route>
                 <Route path="/createAccount">
                   <CreateAccount />

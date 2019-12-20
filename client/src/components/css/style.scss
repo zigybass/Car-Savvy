@@ -26,6 +26,8 @@ body {
 
 #loginForm {
   margin-top: 6rem;
+  animation: fadeInLogin 2s linear;
+
 }
 
 #fun {
@@ -114,7 +116,7 @@ h5 {
   background: rgba(24, 24, 24, 0.93);
   animation: navSlide 1.5s ease-in;
   animation-timing-function: ease-in;
-  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in;
 }
 
 .headerNavSlide {
@@ -128,6 +130,10 @@ h5 {
   animation-timing-function: ease-in-out;
   -webkit-animation-timing-function: ease-in-out;
   z-index: -1;
+}
+
+#loginDesc {
+  animation: fadeInLogin 2s linear;
 }
 
 @keyframes titleSlide {
@@ -166,7 +172,20 @@ h5 {
 }
 
 @keyframes fadeInLogin {
-  from{}
-  to{}
+  0% {
+    -webkit-filter: opacity(0%);
+  }
+  30% {
+    -webkit-filter: opacity(15%);
+  }
+  50% {
+    -webkit-filter: opacity(40%);
+  }
+  75% {
+    -webkit-filter: opacity(75%);
+  }
+  100% {
+    -webkit-filter: opacity(100%);
+  }
 }
 
