@@ -14,9 +14,9 @@ body {
   font-size: 3.8rem;
   float: right;
   margin-top: 5.5rem;
-  animation: titleSlide 1.5s ease-in;
-  animation-timing-function: ease-in-out;
-  -webkit-animation-timing-function: ease-in-out;
+  animation: titleSlide 1.2s ease-out;
+  animation-timing-function: ease-out;
+  -webkit-animation-timing-function: ease-out;
 }
 
 
@@ -117,9 +117,9 @@ h5 {
   height: 100%;
   margin-left: 4.75rem;
   background: rgba(24, 24, 24, 0.93);
-  animation: navSlide 1.5s ease-in;
-  animation-timing-function: ease-in;
-  -webkit-animation-timing-function: ease-in;
+  animation: navSlide 1.2s ease-out;
+  animation-timing-function: ease-out;
+  -webkit-animation-timing-function: ease-out;
 }
 
 .headerNavSlide {
@@ -139,8 +139,10 @@ h5 {
   animation: fadeInLogin 1.25s linear;
 }
 
-#backArrow {
-  color: rgb(235, 235, 235);  
+#backArrow, #loginArrow {
+  color: rgb(235, 235, 235); 
+  left: 70px;
+  position: absolute;
 }
 
 @keyframes titleSlide {
@@ -157,7 +159,7 @@ h5 {
 @keyframes navSlide {
   from {
     transform: translateX(-300px);
-    -webkit-filter: blur(1.8px);
+    -webkit-filter: blur(1.5px);
   }
   to {
     transform: translateX(0px);
@@ -167,12 +169,10 @@ h5 {
 
 @keyframes navSlideOut {
   from {
-    // transform: translateX(0px);
     -webkit-filter: blur(0px);
     width: 18%;
   }
   to {
-    // transform: translateX(300px);
     -webkit-filter: blur(2px);
     width: 90%;
   }
