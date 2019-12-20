@@ -27,7 +27,10 @@ body {
 #loginForm {
   margin-top: 6rem;
   animation: fadeInLogin 2s linear;
+}
 
+#username, #password {
+  color: rgb(231, 231, 231);
 }
 
 #fun {
@@ -47,7 +50,7 @@ body {
 }
 
 .input-field input[type="text"]:focus + label {
-  color: $fontColor;
+  color: rgb(231, 231, 231);
 }
 
 .input-field input[type="text"]:focus {
@@ -136,6 +139,10 @@ h5 {
   animation: fadeInLogin 1.25s linear;
 }
 
+#backArrow {
+  color: rgb(235, 235, 235);  
+}
+
 @keyframes titleSlide {
   from {
     transform: translateX(500px);
@@ -174,7 +181,7 @@ h5 {
 @keyframes fadeInLogin {
   0% {
     -webkit-filter: opacity(0%);
-    transform: translateY(-8px);
+    transform: translateY(-6px);
   }
   30% {
     -webkit-filter: opacity(15%);

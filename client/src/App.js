@@ -22,14 +22,14 @@ class App extends React.Component {
   render() {
 
     return (
-      <Provider store={store}>
-        <Router>
+      <Router>
+        <Provider store={store}>
           <div className="App">
           <Header/>
             <div className="container mainApp">
-
+              
               <Switch>
-                <Route exact path="/">  
+                <Route exact path="/" >  
                   <Title />
                 </Route>
                 <Route path="/login">
@@ -55,8 +55,8 @@ class App extends React.Component {
               </Switch>
             </div>
           </div>
-        </Router>
       </Provider>
+        </Router>
     );
   }
 }

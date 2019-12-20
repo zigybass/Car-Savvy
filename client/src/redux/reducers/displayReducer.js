@@ -7,7 +7,7 @@ const initialState = {
 function displayReducer (state = initialState, action) {
     switch (action.type) {
         case HEADER_MOVE:
-            return {...state, headerOpen: true}
+            return {...state, headerOpen: action.action}
         default:
             return state;
     }
