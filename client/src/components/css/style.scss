@@ -14,7 +14,7 @@ body {
   font-size: 3.8rem;
   float: right;
   margin-top: 5.5rem;
-  animation: titleSlide 1.6s ease-in;
+  animation: titleSlide 1.5s ease-in;
   animation-timing-function: ease-in-out;
   -webkit-animation-timing-function: ease-in-out;
 }
@@ -104,12 +104,26 @@ h5 {
   display: inline-block;
 }
 
-#headerNav {
+.headerNav {
   position: fixed;
-  width: 240px;
+  top: 0;
+  // width: 240px;
   height: 100%;
-  margin-left: 45px;
-  background: rgba(24, 24, 24, 0.92);
+  margin-left: 3rem;
+  background: rgba(24, 24, 24, 0.93);
+  animation: navSlide 1.5s ease-in;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+.headerNavSlide {
+  position: fixed;
+  top: 0;
+  width: 90%;
+  height: 100%;
+  margin-left: 3rem;
+  background: rgba(24, 24, 24, 0.93);
+  animation: navSlideOut 1s ease-in-out;
   animation-timing-function: ease-in-out;
   -webkit-animation-timing-function: ease-in-out;
 }
@@ -138,14 +152,14 @@ h5 {
 
 @keyframes navSlideOut {
   from {
-    transform: translateX(0px);
+    // transform: translateX(0px);
     -webkit-filter: blur(0px);
+    width: 240px;
   }
   to {
-    transform: translateX(0px);
-    -webkit-filter: blur(0px);
-    transform: translateX(-300px);
+    // transform: translateX(300px);
     -webkit-filter: blur(2px);
+    width: 90%;
   }
 }
 

@@ -15,8 +15,7 @@ import rootReducer from "./reducers/index";
 //   }
 // }
 
-const appState = {
-};
+const appState = {}
 
 // Store
 const store = createStore(rootReducer, appState)

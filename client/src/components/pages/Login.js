@@ -12,7 +12,7 @@ class Login extends React.Component {
   }
 
   onChange = e => {
-    console.log(store.getState())
+    console.log(store.getState());
     const inputName = e.target.name;
     const text = e.target.value;
     if (inputName === "username") {
@@ -74,7 +74,7 @@ class Login extends React.Component {
                   onChange={this.onChange}
                   name="password"
                 />
-                <label for="password">Password</label>
+                <label htmlFor="password">Password</label>
               </div>
             </div>
           </div>

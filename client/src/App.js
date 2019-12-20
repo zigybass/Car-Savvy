@@ -13,12 +13,28 @@ import store from "../src/redux/store";
 import "../src/components/css/style.scss";
 
 class App extends React.Component {
+
+
+  componentDidUpdate () {
+    console.log(store.getState());
+  }
+
   render() {
+
+    // const { display } = store.getState();
+    // let style = {
+    //   animation: "navSlide 1.4s ease-in"
+    // }
+
+    // if ( display.headerOpen === false ) {
+    //   style = "navSlideOut 1.2s ease-in"
+    // }
+
     return (
       <Provider store={store}>
         <Router>
           <div className="App">
-          <Header />
+          <Header/>
             <div className="container mainApp">
 
               <Switch>
