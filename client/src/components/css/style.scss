@@ -14,7 +14,7 @@ body {
   color: $fontColorBlack;
   font-size: 3.8rem;
   float: right;
-  margin-top: 5.5rem;
+  margin-top: 4rem;
   animation: titleSlide 1s ease-out;
   animation-timing-function: ease-out;
   -webkit-animation-timing-function: ease-out;
@@ -27,6 +27,7 @@ body {
 
 #loginForm {
   margin-top: 6rem;
+  margin-left: 5rem;
   animation: fadeInForm 1s linear;
 }
 
@@ -41,11 +42,13 @@ body {
 .createAccountCont {
   color: $fontColorWhite;
   animation: fadeInForm 1s linear;
-  margin-top: 2.4rem;
+  margin-top: 5rem;
+  margin-left: 5.5rem;
 }
 
 #createForm {
   margin-top: 6rem;
+  margin-left: 5rem;
   animation: fadeInForm 1s linear;
 }
 
@@ -67,7 +70,8 @@ h5 {
 }
 
 #loginDesc {
-  margin-top: 2.4rem;
+  margin-top: 9rem;
+  margin-left: 5.5rem;
   color: $fontColorWhite;
   animation: fadeInLogin 1s linear;
 
@@ -78,8 +82,8 @@ h5 {
 }
 
 #loginBtn {
-  margin-top: 5.5rem;
-  margin-bottom: 15px;
+  margin-top: 4rem;
+  margin-bottom: 20px;
 }
 
 #bubbleLink {
@@ -144,15 +148,15 @@ h5 {
 #loginArrow {
   color: $fontColorWhite;
   position: absolute;
-  left: 8rem;
-  top: 2.5rem;
+  left: 10rem;
+  top: 9rem;
 }
 
 #accountArrow {
   color: $fontColorWhite;
   position: absolute;
-  left: 8rem;
-  top: 2.7rem;
+  left: 10rem;
+  top: 5.5rem;
 }
 
 @keyframes titleSlide {
