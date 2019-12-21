@@ -7,7 +7,8 @@ import {
   USER_TEXT, 
   PASS_TEXT, 
   PASS_CONFIRM, 
-  HEADER_MOVE 
+  HEADER_MOVE,
+  CLEAR_TEXT
 } from "../../redux/reducers/types";
 import axios from "axios";
 
@@ -52,6 +53,9 @@ class CreateAccount extends React.Component {
     };
     this.checkPasswords(newUser.password)
     console.log(newUser);
+    store.dispatch({
+      type: CLEAR_TEXT
+    })
     axios
       .post("/api/users", newUser)
       .then(res => {
@@ -65,10 +69,10 @@ class CreateAccount extends React.Component {
   checkPasswords (pass, pass2) {
 
 
-
   }
 
   goBack = e => {
+    console.log(this.props)
     store.dispatch({
       type: HEADER_MOVE,
       action: false
@@ -95,7 +99,7 @@ class CreateAccount extends React.Component {
                 name="firstName"
                 onChange={this.onChange}
               />
-              <label for="first_name">First Name</label>
+              <label htmlFor="first_name">First Name</label>
             </div>
           </div>
           <div className="row">
@@ -117,7 +121,7 @@ class CreateAccount extends React.Component {
                 name="password"
                 onChange={this.onChange}
               />
-              <label for="first_name">Password</label>
+              <label htmlFor="first_name">Password</label>
             </div>
           </div>
           <div className="row">
@@ -128,7 +132,7 @@ class CreateAccount extends React.Component {
                 name="secondPassword"
                 onChange={this.onChange}
               />
-              <label for="first_name">Re-enter Password</label>
+              <label htmlFor="first_name">Re-enter Password</label>
             </div>
           </div>
           <Link>

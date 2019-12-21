@@ -62,6 +62,9 @@ class Login extends React.Component {
       type: HEADER_MOVE,
       action: false
     });
+    store.dispatch({
+      type: CLEAR_TEXT
+    })
   };
 
   render() {
