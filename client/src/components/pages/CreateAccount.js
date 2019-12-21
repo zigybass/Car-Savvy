@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import store from "../../redux/store";
 import { connect } from "react-redux";
 import { 
@@ -14,7 +14,7 @@ import axios from "axios";
 
 class CreateAccount extends React.Component {
   componentDidMount() {
-    console.log(store.getState());
+    console.log(this.props);
   }
 
   onChange = e => {
@@ -74,6 +74,9 @@ class CreateAccount extends React.Component {
   goBack = e => {
     console.log(this.props)
     store.dispatch({
+      type: CLEAR_TEXT
+    })
+    store.dispatch({
       type: HEADER_MOVE,
       action: false
     })
@@ -98,6 +101,7 @@ class CreateAccount extends React.Component {
                 type="text"
                 name="firstName"
                 onChange={this.onChange}
+                value={this.props.firstName}
               />
               <label htmlFor="first_name">First Name</label>
             </div>
@@ -109,8 +113,9 @@ class CreateAccount extends React.Component {
                 type="text"
                 name="username"
                 onChange={this.onChange}
+                value={this.props.username}
               />
-              <label for="first_name">Username</label>
+              <label htmlFor="first_name">Username</label>
             </div>
           </div>
           <div className="row">
@@ -120,6 +125,7 @@ class CreateAccount extends React.Component {
                 type="text"
                 name="password"
                 onChange={this.onChange}
+                value={this.props.password}
               />
               <label htmlFor="first_name">Password</label>
             </div>
@@ -131,6 +137,7 @@ class CreateAccount extends React.Component {
                 type="text"
                 name="secondPassword"
                 onChange={this.onChange}
+                value={this.props.passConfirm}
               />
               <label htmlFor="first_name">Re-enter Password</label>
             </div>
@@ -152,4 +159,14 @@ class CreateAccount extends React.Component {
   }
 }
 
-export default connect(null)(CreateAccount);
+const mapStateToProps = (state) => {
+  const { input } = state;
+  return {
+    username: input.username,
+    firstName: input.firstName,
+    password: input.password,
+    passConfirm: input.passConfirm
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(CreateAccount));
