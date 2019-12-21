@@ -10,8 +10,8 @@ class Login extends React.Component {
     console.log(this.props);
   }
 
-  componentDidUpdate () {
-    console.log(this.props)
+  componentDidUpdate() {
+    console.log(this.props);
   }
 
   onChange = e => {
@@ -56,60 +56,59 @@ class Login extends React.Component {
     store.dispatch({
       type: HEADER_MOVE,
       action: false
-    })
-  }
+    });
+  };
 
   render() {
     return (
+      // Link cant use preventDefault(), or else wont "redirect"
 
-      // Link cant use preventDefault()...
-
-        <div className="container">
+      <div className="container">
           <Link to="/" id="loginArrow" onClick={this.goBack}>
-            <i className="material-icons" id="backArrow" >arrow_back</i>
+            <i className="material-icons" id="backArrow">
+              arrow_back
+            </i>
           </Link>
-          <div id="loginDesc">
-            <h5>
-              Welcome back to CarSavvy! Please login to load your profile.
-            </h5>
-          </div>
-          <div id="loginForm">
-            <div className="row">
-              <div className="input-field col s8">
-                <input
-                  id="username"
-                  type="text"
-                  onChange={this.onChange}
-                  name="username"
-                />
-                <label htmlFor="first_name">Username</label>
-              </div>
-            </div>
-            <div className="row">
-              <div className="input-field col s8">
-                <input
-                  id="password"
-                  type="password"
-                  className="validate"
-                  onChange={this.onChange}
-                  name="password"
-                />
-                <label htmlFor="password">Password</label>
-              </div>
-            </div>
-            <Link to="/menu">
-              <button
-                className="btn waves-effect yellow darken-1 black-text waves-dark"
-                style={{ marginLeft: ".8rem" }}
-                type="submit"
-                name="action"
-                onClick={this.onSubmit}
-              >
-                Login
-              </button>
-            </Link>
-          </div>
+        <div id="loginDesc">
+          <h5>Welcome back! Please login to load your profile.</h5>
         </div>
+        <div id="loginForm">
+          <div className="row">
+            <div className="input-field col s8">
+              <input
+                id="username"
+                type="text"
+                onChange={this.onChange}
+                name="username"
+              />
+              <label htmlFor="first_name">Username</label>
+            </div>
+          </div>
+          <div className="row">
+            <div className="input-field col s8">
+              <input
+                id="password"
+                type="password"
+                className="validate"
+                onChange={this.onChange}
+                name="password"
+              />
+              <label htmlFor="password">Password</label>
+            </div>
+          </div>
+          <Link to="/menu">
+            <button
+              className="btn waves-effect yellow darken-1 black-text waves-dark"
+              style={{ marginLeft: ".8rem" }}
+              type="submit"
+              name="action"
+              onClick={this.onSubmit}
+            >
+              Login
+            </button>
+          </Link>
+        </div>
+      </div>
     );
   }
 }
@@ -119,7 +118,7 @@ const mapStateToProps = state => {
   return {
     username: input.username,
     password: input.password
-  }
-}
+  };
+};
 
 export default withRouter(connect(mapStateToProps)(Login));

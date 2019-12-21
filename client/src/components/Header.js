@@ -17,7 +17,17 @@ class Header extends React.Component {
   }
 
   componentDidMount () {
+
+    // Is new User logged in? Check and change view as necessary
+    if (this.props.loggedIn === true) {
+      console.log("user logged in on Header comp")
+    }
+
     console.log(this.props)
+  }
+
+  componentDidUpdate () {
+    // Is User logged in? If so, change buttons to reflect new view
   }
 
   render() {
@@ -44,7 +54,8 @@ class Header extends React.Component {
 
 
 const mapStateToProps = state =>  ({
-  headerOpen: state.display.headerOpen
+  headerOpen: state.display.headerOpen,
+  loggedIn: state.display.loggedIn
 })
 
 export default withRouter(connect(mapStateToProps)(Header));

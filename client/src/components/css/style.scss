@@ -1,4 +1,5 @@
-$fontColor: rgb(43, 43, 43);
+$fontColorBlack: rgb(43, 43, 43);
+$fontColorWhite: rgb(231, 231, 231);
 
 body {
   background-image: url("./porscheOriginal2.jpg");
@@ -10,47 +11,50 @@ body {
 
 #title {
   font-family: "Satisfy", cursive;
-  color: $fontColor;
+  color: $fontColorBlack;
   font-size: 3.8rem;
   float: right;
   margin-top: 5.5rem;
-  animation: titleSlide 1.2s ease-out;
+  animation: titleSlide 1s ease-out;
   animation-timing-function: ease-out;
   -webkit-animation-timing-function: ease-out;
 }
 
 
 .oilTitle {
-  color: $fontColor;
+  color: $fontColorWhite;
 }
 
 #loginForm {
   margin-top: 6rem;
-  animation: fadeInLogin 2s linear;
+  animation: fadeInForm 1s linear;
 }
 
 #username, #password {
-  color: rgb(231, 231, 231);
+  color: $fontColorWhite;
 }
 
 #fun {
-  color: rgb(231, 231, 231);
+  color: $fontColorWhite;
 }
 
 .createAccountCont {
-  color: $fontColor;
+  color: $fontColorWhite;
+  animation: fadeInForm 1s linear;
+  margin-top: 2.4rem;
 }
 
 #createForm {
-  margin-top: 5rem;
+  margin-top: 6rem;
+  animation: fadeInForm 1s linear;
 }
 
 .input-field label {
-  color: rgb(231, 231, 231);
+  color: $fontColorWhite;
 }
 
 .input-field input[type="text"]:focus + label {
-  color: rgb(231, 231, 231);
+  color: $fontColorWhite;
 }
 
 .input-field input[type="text"]:focus {
@@ -59,12 +63,14 @@ body {
 }
 
 h5 {
-  color: rgb(231, 231, 231);
+  color: $fontColorWhite;
 }
 
 #loginDesc {
-  margin-top: 40px;
-  color: rgb(231, 231, 231);
+  margin-top: 2.4rem;
+  color: $fontColorWhite;
+  animation: fadeInLogin 1s linear;
+
 }
 
 #findCarBtn {
@@ -83,7 +89,7 @@ h5 {
   border-radius: 50%;
   background: rgb(51, 51, 51);
   text-align: center;
-  color: rgb(235, 235, 235);
+  color: $fontColorWhite;
   box-shadow: 4px 5px 4px rgba(73, 73, 73, 0.692);
 }
 
@@ -117,7 +123,7 @@ h5 {
   height: 100%;
   margin-left: 4.75rem;
   background: rgba(24, 24, 24, 0.93);
-  animation: navSlide 1.2s ease-out;
+  animation: navSlide 1s ease-out;
   animation-timing-function: ease-out;
   -webkit-animation-timing-function: ease-out;
 }
@@ -129,20 +135,24 @@ h5 {
   height: 100%;
   margin: 0 4.75rem;
   background: rgba(24, 24, 24, 0.93);
-  animation: navSlideOut 1s ease-in-out;
+  animation: navSlideOut .8s ease-in-out;
   animation-timing-function: ease-in-out;
   -webkit-animation-timing-function: ease-in-out;
   z-index: -1;
 }
 
-#loginDesc {
-  animation: fadeInLogin 1.25s linear;
+#loginArrow {
+  color: $fontColorWhite;
+  position: absolute;
+  left: 8rem;
+  top: 2.5rem;
 }
 
-#backArrow, #loginArrow {
-  color: rgb(235, 235, 235); 
-  left: 70px;
+#accountArrow {
+  color: $fontColorWhite;
   position: absolute;
+  left: 8rem;
+  top: 2.7rem;
 }
 
 @keyframes titleSlide {
@@ -178,7 +188,7 @@ h5 {
   }
 }
 
-@keyframes fadeInLogin {
+@keyframes fadeInForm {
   0% {
     -webkit-filter: opacity(0%);
     transform: translateY(-6px);
