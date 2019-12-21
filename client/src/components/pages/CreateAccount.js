@@ -2,7 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import store from "../../redux/store";
 import { connect } from "react-redux";
-import { FIRST_TEXT, USER_TEXT, PASS_TEXT, PASS_CONFIRM, HEADER_MOVE } from "../../redux/reducers/types";
+import { 
+  FIRST_TEXT, 
+  USER_TEXT, 
+  PASS_TEXT, 
+  PASS_CONFIRM, 
+  HEADER_MOVE 
+} from "../../redux/reducers/types";
 import axios from "axios";
 
 class CreateAccount extends React.Component {

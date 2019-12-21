@@ -1,6 +1,20 @@
-import { SUBMIT_USER, USER_TEXT, PASS_TEXT, FIRST_TEXT   } from "./types";
+import { 
+  SUBMIT_USER, 
+  USER_TEXT, 
+  PASS_TEXT, 
+  FIRST_TEXT, 
+  PASS_CONFIRM,
+  CLEAR_TEXT
+   } from "./types";
 
-function inputReducer(state = [], action) {
+const initialInputState = {
+  username: "",
+  password: "",
+  passConfirm: "",
+  firstName: ""
+}
+
+function inputReducer(state = initialInputState, action) {
   console.log(action)
     switch (action.type) {
       case USER_TEXT:
@@ -11,7 +25,16 @@ function inputReducer(state = [], action) {
         return state.user = action.user
       case FIRST_TEXT:
           return {...state, firstName: action.text}
-
+      case PASS_CONFIRM:
+        return {...state, passConfirm: action.text}
+      case CLEAR_TEXT:
+        return {
+          ...state, 
+          username: "",
+          password: "",
+          passConfirm: "",
+          firstName: ""
+        }
       default:
         return state
     }

@@ -1,11 +1,11 @@
 import { HEADER_MOVE, USER_LOGGED_IN } from "./types";
 
-const initialState = {
+const initialDisplayState = {
     headerOpen: false,
     loggedIn: false
 }
 
-function displayReducer (state = initialState, action) {
+function displayReducer (state = initialDisplayState, action) {
     switch (action.type) {
         case HEADER_MOVE:
             return {...state, headerOpen: action.action}

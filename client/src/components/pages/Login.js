@@ -2,7 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import store from "../../redux/store";
 import { connect } from "react-redux";
-import { USER_TEXT, PASS_TEXT, HEADER_MOVE } from "../../redux/reducers/types";
+import { USER_TEXT, PASS_TEXT, HEADER_MOVE, CLEAR_TEXT } from "../../redux/reducers/types";
 import axios from "axios";
 
 class Login extends React.Component {
@@ -36,10 +36,15 @@ class Login extends React.Component {
       username: input.username,
       password: input.password
     };
-    store.dispatch({
-      type: HEADER_MOVE,
-      action: false
-    });
+    store.dispatch(
+    //   {
+    //   type: HEADER_MOVE,
+    //   action: false
+    // },
+    {
+      type: CLEAR_TEXT
+    }
+    );
     console.log(user);
 
     axios
@@ -80,6 +85,7 @@ class Login extends React.Component {
                 type="text"
                 onChange={this.onChange}
                 name="username"
+                value={this.props.username}
               />
               <label htmlFor="first_name">Username</label>
             </div>
@@ -92,11 +98,12 @@ class Login extends React.Component {
                 className="validate"
                 onChange={this.onChange}
                 name="password"
+                value={this.props.password}
               />
               <label htmlFor="password">Password</label>
             </div>
           </div>
-          <Link to="/menu">
+          <Link>
             <button
               className="btn waves-effect yellow darken-1 black-text waves-dark"
               style={{ marginLeft: ".8rem" }}
