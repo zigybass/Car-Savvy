@@ -18,7 +18,6 @@ class CreateAccount extends React.Component {
   }
 
   onChange = e => {
-    console.log(store.getState());
     const inputName = e.target.name;
     const text = e.target.value;
     if (inputName === "firstName") {
@@ -42,20 +41,35 @@ class CreateAccount extends React.Component {
         text: text
       });
     }
+    console.log(this.props);
   };
 
   onSubmit = e => {
-    const { input } = store.getState();
+    // console.log(this.props)
+    const { input } = this.props;
+    console.log(input);
+    // const pass = input.password;
+    // const passConfirm = input.passConfirm;
+
+    // this.checkPasswords(pass, passConfirm)
+  };
+
+  checkPasswords (pass, pass2) {
+    if ( pass !== pass2 ) {
+      alert("Passwords dont match");
+    }
+
+  }
+
+  createAccount = () => {
+    const { input } = this.props;
     const newUser = {
       firstName: input.firstName,
       username: input.username,
-      password: input.password
+      password: input.password,
+      passConfirm: input.passConfirm
     };
-    this.checkPasswords(newUser.password)
-    console.log(newUser);
-    store.dispatch({
-      type: CLEAR_TEXT
-    })
+
     axios
       .post("/api/users", newUser)
       .then(res => {
@@ -64,10 +78,6 @@ class CreateAccount extends React.Component {
       .catch(err => {
         console.log("Error: " + err);
       });
-  };
-
-  checkPasswords (pass, pass2) {
-
 
   }
 
