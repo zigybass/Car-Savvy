@@ -46,12 +46,12 @@ class CreateAccount extends React.Component {
 
   onSubmit = e => {
     // console.log(this.props)
-    const { input } = this.props;
+    const input = this.props;
     console.log(input);
-    // const pass = input.password;
-    // const passConfirm = input.passConfirm;
+    const pass = input.password;
+    const passConfirm = input.passConfirm;
 
-    // this.checkPasswords(pass, passConfirm)
+    this.checkPasswords(pass, passConfirm)
   };
 
   checkPasswords (pass, pass2) {
