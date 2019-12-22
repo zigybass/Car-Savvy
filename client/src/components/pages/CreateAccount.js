@@ -45,7 +45,6 @@ class CreateAccount extends React.Component {
   };
 
   onSubmit = e => {
-    // console.log(this.props)
     const input = this.props;
     console.log(input);
     const pass = input.password;
@@ -57,19 +56,20 @@ class CreateAccount extends React.Component {
   checkPasswords (pass, pass2) {
     if ( pass !== pass2 ) {
       alert("Passwords dont match");
+    } else if ( pass === pass2 ) {
+      this.createAccount();
     }
+    this.props.history.push("/menu")
 
   }
 
   createAccount = () => {
-    const { input } = this.props;
+    const input = this.props;
     const newUser = {
       firstName: input.firstName,
       username: input.username,
-      password: input.password,
-      passConfirm: input.passConfirm
+      password: input.password
     };
-
     axios
       .post("/api/users", newUser)
       .then(res => {
