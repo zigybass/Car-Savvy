@@ -11,6 +11,7 @@
 * Axios
 * Sass
 * Concurrently NPM
+* Nodemon
 * More to be implemented...
 
 
