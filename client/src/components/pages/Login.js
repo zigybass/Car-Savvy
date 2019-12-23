@@ -6,8 +6,13 @@ import { USER_TEXT, PASS_TEXT, HEADER_MOVE, CLEAR_TEXT } from "../../redux/reduc
 import axios from "axios";
 
 class Login extends React.Component {
+  
   componentDidMount() {
     console.log(this.props);
+    store.dispatch({
+      type: HEADER_MOVE,
+      action: true
+    })
   }
 
   componentDidUpdate() {

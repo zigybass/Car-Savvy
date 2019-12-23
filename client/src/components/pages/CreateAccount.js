@@ -13,8 +13,13 @@ import {
 import axios from "axios";
 
 class CreateAccount extends React.Component {
+
   componentDidMount() {
     console.log(this.props);
+    store.dispatch({
+      type: HEADER_MOVE,
+      action: true
+    })
   }
 
   onChange = e => {
@@ -49,19 +54,25 @@ class CreateAccount extends React.Component {
     console.log(input);
     const pass = input.password;
     const passConfirm = input.passConfirm;
-
-    this.checkPasswords(pass, passConfirm)
+    if ( input.username === "") {
+      alert("Please enter a username")
+    } else if ( input.firstName === "") {
+      alert("Please enter a first name")
+    } else {
+      this.checkPasswords(pass, passConfirm)
+    }
   };
 
   checkPasswords (pass, pass2) {
     if ( pass !== pass2 ) {
-      alert("Passwords dont match");
+      alert("Passwords don't match")
+    } else if ( (pass === "") || (pass2 === "") ) {
+      alert("Please enter a password")
     } else if ( pass === pass2 ) {
+      this.props.history.push("/menu")
       this.createAccount();
-    }
-    this.props.history.push("/menu")
-
-  }
+    } 
+  };
 
   createAccount = () => {
     const input = this.props;
@@ -132,7 +143,7 @@ class CreateAccount extends React.Component {
             <div className="input-field col s8">
               <input
                 id="username"
-                type="text"
+                type="password"
                 name="password"
                 onChange={this.onChange}
                 value={this.props.password}
@@ -144,7 +155,7 @@ class CreateAccount extends React.Component {
             <div className="input-field col s8">
               <input
                 id="username"
-                type="text"
+                type="password"
                 name="secondPassword"
                 onChange={this.onChange}
                 value={this.props.passConfirm}

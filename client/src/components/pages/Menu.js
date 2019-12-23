@@ -1,10 +1,20 @@
 import React from "react";
 import Button from "../Button";
 import BubbleLink from "../BubbleLink";
+import store from "../../redux/store";
+import { HEADER_MOVE } from "../../redux/reducers/types";
 
 class Menu extends React.Component {
 
+  componentDidMount () {
+    store.dispatch({
+      type: HEADER_MOVE,
+      action: false
+    })
+  }
+
   render() {
+
     return (
       <div className="container">
         <div>
