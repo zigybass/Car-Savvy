@@ -4,10 +4,15 @@ module.exports = function(app) {
 
     // Needs authentication here
     app.post('/api/login', function (req, res) {
-        res.json({
-            message: "Logged in!"
+        console.log("Login attempt: " + JSON.stringify(req.body))
+        const { username, password } = req.body;
+        User.findOne({ username: username, password: password }, (err, res) => {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log(res)
+            }
         })
-        console.log("Login hits backend with: " + req.body)
     })
 
     app.post("/api/users", (req, res) => {
