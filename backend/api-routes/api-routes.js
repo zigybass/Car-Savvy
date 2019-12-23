@@ -11,18 +11,14 @@ module.exports = function(app) {
     })
 
     app.post("/api/users", (req, res) => {
+        console.log("POST Route: " + JSON.stringify(req.body))
+        User.create(req.body), (err, res) => {
+            if (err) {
+                console.log("POST User Err: " + err)
+            }
+        }
         res.json({
-            message: "New User created!"
+            message: "User created!"
         })
-        User.create(req.body).then( res => {
-            res.json({
-                message: "User created"
-            })
-        }).catch( err => {
-            res.status(500).json({
-                error: err.message
-            })
-        })
-        console.log(JSON.stringify(req.body))
     })
 }

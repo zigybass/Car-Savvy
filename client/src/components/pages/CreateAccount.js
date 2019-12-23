@@ -84,12 +84,14 @@ class CreateAccount extends React.Component {
     axios
       .post("/api/users", newUser)
       .then(res => {
-        console.log(res);
+        console.log(res.data);
       })
       .catch(err => {
         console.log("Error: " + err);
       });
-
+      store.dispatch({
+        type: CLEAR_TEXT
+      })
   }
 
   goBack = e => {
