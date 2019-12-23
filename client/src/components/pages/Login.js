@@ -6,7 +6,7 @@ import { USER_TEXT, PASS_TEXT, HEADER_MOVE, CLEAR_TEXT } from "../../redux/reduc
 import axios from "axios";
 
 class Login extends React.Component {
-  
+
   componentDidMount() {
     console.log(this.props);
     store.dispatch({
@@ -58,7 +58,7 @@ class Login extends React.Component {
         console.log(res.data);
       })
       .catch(err => {
-        console.log(err.response);
+        console.log(err);
       });
   };
 

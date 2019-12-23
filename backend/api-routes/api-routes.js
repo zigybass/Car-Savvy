@@ -6,11 +6,18 @@ module.exports = function(app) {
     app.post('/api/login', function (req, res) {
         console.log("Login attempt: " + JSON.stringify(req.body))
         const { username, password } = req.body;
-        User.findOne({ username: username, password: password }, (err, res) => {
+        User.findOne({ username: username }, (err, res) => {
             if (err) {
                 console.log(err)
-            } else {
-                console.log(res)
+            }
+        }).then( dbUser => {
+            if (!dbUser) {
+                return res.status(401).json({
+                    message: "Username or password is incorrect"
+                })
+            }
+            if (dbUser) {
+                res.json(dbUser)
             }
         })
     })
