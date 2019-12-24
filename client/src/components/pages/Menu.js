@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "../Button";
 import BubbleLink from "../BubbleLink";
 import store from "../../redux/store";
 import { HEADER_MOVE } from "../../redux/reducers/types";
+import { connect } from "react-redux";
 
 class Menu extends React.Component {
 
@@ -10,16 +10,14 @@ class Menu extends React.Component {
     store.dispatch({
       type: HEADER_MOVE,
       action: false
-    })
+    });
+    console.log(this.props)
   }
 
   render() {
 
     return (
       <div className="container">
-        <div>
-          <Button id="findCarBtn" name="Find Car" />
-        </div>
         <div className="row">
           <div id="buttonRow">
             <BubbleLink name="Oil Change" to="/oilChange"/>
@@ -33,4 +31,11 @@ class Menu extends React.Component {
   }
 }
 
-export default Menu;
+const mapStateToProps = (state) => {
+  const { user } = state;
+  return {
+    firstName: user.firstName
+  }
+}
+
+export default connect(mapStateToProps)(Menu);

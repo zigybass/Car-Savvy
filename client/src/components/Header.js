@@ -4,7 +4,6 @@ import Button from "./Button";
 import store from "../redux/store";
 import { connect } from "react-redux";
 import { HEADER_MOVE } from "../redux/reducers/types";
-// import { HEADER_MOVE } from "../redux/reducers/types";
 
 class Header extends React.Component {
   
@@ -19,15 +18,11 @@ class Header extends React.Component {
   componentDidMount () {
 
     // Is new User logged in? Check and change view as necessary
-    if (this.props.loggedIn === true) {
-      console.log("user logged in on Header comp")
-    }
-
-    console.log(this.props)
   }
 
   componentDidUpdate () {
     // Is User logged in? If so, change buttons to reflect new view
+    console.log(this.props)
   }
 
   render() {
@@ -46,6 +41,7 @@ class Header extends React.Component {
           <Link to="/createAccount" onClick={this.slideOut} style={{display: hideBtn}} >
             <Button id="createAccBtn" name="Create Account" />
           </Link>
+          {/* <Button id="findCarBtn" name="Find Car" /> */}
         </div>
       </div>
     );
@@ -53,9 +49,12 @@ class Header extends React.Component {
 }
 
 
-const mapStateToProps = state =>  ({
-  headerOpen: state.display.headerOpen,
-  loggedIn: state.display.loggedIn
-})
+const mapStateToProps = state =>  {
+  const { display, user } = state;
+  return {
+    headerOpen: display.headerOpen,
+    loggedIn: user.loggedIn
+  }
+}
 
 export default withRouter(connect(mapStateToProps)(Header));

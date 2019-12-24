@@ -2,7 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import store from "../../redux/store";
 import { connect } from "react-redux";
-import { USER_TEXT, PASS_TEXT, HEADER_MOVE, CLEAR_TEXT } from "../../redux/reducers/types";
+import { USER_TEXT, PASS_TEXT, HEADER_MOVE, CLEAR_TEXT, USER_FIRSTNAME, USER_LOGGED_IN } from "../../redux/reducers/types";
 import axios from "axios";
 
 class Login extends React.Component {
@@ -41,26 +41,38 @@ class Login extends React.Component {
       username: input.username,
       password: input.password
     };
-    store.dispatch(
-    //   {
-    //   type: HEADER_MOVE,
-    //   action: false
-    // },
-    {
+    store.dispatch({
       type: CLEAR_TEXT
-    }
-    );
+    });
     console.log(user);
 
     axios
       .post("/api/login", user)
       .then(res => {
-        console.log(res.data);
+        const user = {
+          id: res.data._id,
+          firstName: res.data.firstName,
+          username: res.data.username
+        }
+        this.logInUser(user);
       })
       .catch(err => {
         console.log(err);
       });
   };
+
+  logInUser (user) {
+    console.log(user)
+    store.dispatch({
+      type: USER_FIRSTNAME,
+      text: user.firstName
+    });
+    store.dispatch({
+      type: USER_LOGGED_IN,
+      action: true
+    })
+    this.props.history.push("/menu");
+  }
 
   goBack = e => {
     store.dispatch({
