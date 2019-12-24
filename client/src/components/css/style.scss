@@ -77,7 +77,8 @@ h5 {
 }
 
 #findCarBtn {
-  margin-top: 1rem;
+  margin-top: 4rem;
+  margin-left: 2rem;
 }
 
 #loginBtn {
@@ -168,6 +169,12 @@ h5 {
   position: absolute;
   left: 10rem;
   top: 5.5rem;
+}
+
+#userGreeting {
+  font-weight: 300;
+  color: $fontColorWhite;
+  margin-left: 1rem;
 }
 
 @keyframes titleSlide {

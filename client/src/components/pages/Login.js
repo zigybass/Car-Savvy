@@ -44,7 +44,6 @@ class Login extends React.Component {
     store.dispatch({
       type: CLEAR_TEXT
     });
-    console.log(user);
 
     axios
       .post("/api/login", user)
@@ -61,6 +60,7 @@ class Login extends React.Component {
       });
   };
 
+  // Needs to keep track of User ID in URL.
   logInUser (user) {
     console.log(user)
     store.dispatch({

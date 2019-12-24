@@ -24,7 +24,7 @@ class Header extends React.Component {
   }
 
   render() {
-    const { headerOpen, loggedIn } = this.props;
+    const { headerOpen, loggedIn, firstName } = this.props;
 
     let userBtns = "";
     // Styles SideNav and Buttons
@@ -39,6 +39,7 @@ class Header extends React.Component {
     return (
       <div className={slideClass}>
         <div className="container" id="navCont">
+        <div id="userGreeting" style={{ display: findCarBtn}} >Welcome Back {firstName}!</div>
           <Link
             to="/login"
             onClick={this.slideOut}
@@ -66,7 +67,8 @@ const mapStateToProps = state => {
   const { display, user } = state;
   return {
     headerOpen: display.headerOpen,
-    loggedIn: user.loggedIn
+    loggedIn: user.loggedIn,
+    firstName: user.firstName
   };
 };
 
