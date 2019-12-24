@@ -6,55 +6,68 @@ import { connect } from "react-redux";
 import { HEADER_MOVE } from "../redux/reducers/types";
 
 class Header extends React.Component {
-  
   // Triggers menu slide out
   slideOut() {
     store.dispatch({
       type: HEADER_MOVE,
       action: true
-    })
+    });
   }
 
-  componentDidMount () {
-
+  componentDidMount() {
+    console.log(this.props);
     // Is new User logged in? Check and change view as necessary
   }
 
-  componentDidUpdate () {
+  componentDidUpdate() {
     // Is User logged in? If so, change buttons to reflect new view
-    console.log(this.props)
   }
 
   render() {
-    const {headerOpen} = this.props;
+    const { headerOpen, loggedIn } = this.props;
 
+    let userBtns = "";
     // Styles SideNav and Buttons
+    if (loggedIn) {
+      userBtns = "none";
+    } else {
+      userBtns = headerOpen ? "none" : "unset";
+    }
     let slideClass = headerOpen ? "headerNavSlide" : "headerNav";
-    let hideBtn = headerOpen ? "none" : "unset";
+    let findCarBtn = loggedIn ? "initial" : "none";
 
     return (
-      <div className={slideClass} >
+      <div className={slideClass}>
         <div className="container" id="navCont">
-          <Link to="/login" onClick={this.slideOut} style={{display: hideBtn}} >
+          <Link
+            to="/login"
+            onClick={this.slideOut}
+            style={{ display: userBtns }}
+          >
             <Button id="loginBtn" name="Login" />
           </Link>
-          <Link to="/createAccount" onClick={this.slideOut} style={{display: hideBtn}} >
+          <Link
+            to="/createAccount"
+            onClick={this.slideOut}
+            style={{ display: userBtns }}
+          >
             <Button id="createAccBtn" name="Create Account" />
           </Link>
-          {/* <Button id="findCarBtn" name="Find Car" /> */}
+          <Link style={{ display: findCarBtn }}>
+            <Button id="findCarBtn" name="Find Car" />
+          </Link>
         </div>
       </div>
     );
   }
 }
 
-
-const mapStateToProps = state =>  {
+const mapStateToProps = state => {
   const { display, user } = state;
   return {
     headerOpen: display.headerOpen,
     loggedIn: user.loggedIn
-  }
-}
+  };
+};
 
 export default withRouter(connect(mapStateToProps)(Header));
