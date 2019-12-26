@@ -74,6 +74,7 @@ class CreateAccount extends React.Component {
     } 
   };
 
+  // Needs fine-tuning. Err keeps being passed back, need to clarify logic. Also has the password in the backend.
   createAccount = () => {
     const input = this.props;
     const newUser = {
@@ -83,6 +84,8 @@ class CreateAccount extends React.Component {
     };
     requests.createAccount(newUser).then(res => {
         console.log(res.data);
+        console.log("User created?");
+        this.props.history.push("/menu");
       })
       .catch(err => {
         console.log("Error: " + err);

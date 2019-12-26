@@ -19,7 +19,7 @@ module.exports = function(app) {
                 res.json(dbUser);
             }
         })
-    })
+    });
 
     app.post("/api/users", (req, res) => {
         console.log("POST Route: " + JSON.stringify(req.body))
@@ -34,9 +34,16 @@ module.exports = function(app) {
                     message: "User already exists"
                 })
             } else if (!dbUser) {
+
+                // Hash password here?
+
                 User.create(req.body), (err, res) => {
                     if (err) {
                         console.log("POST User Err: " + err)
+                    } else {
+                        res.json({
+                            message: "user created"
+                        })
                     }
                 }
             }
