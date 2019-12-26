@@ -3,7 +3,8 @@ import { Link, withRouter } from "react-router-dom";
 import store from "../../redux/store";
 import { connect } from "react-redux";
 import { USER_TEXT, PASS_TEXT, HEADER_MOVE, CLEAR_TEXT, USER_FIRSTNAME, USER_LOGGED_IN } from "../../redux/reducers/types";
-import axios from "axios";
+import "../../utilities/login";
+import login from "../../utilities/login";
 
 class Login extends React.Component {
 
@@ -44,20 +45,18 @@ class Login extends React.Component {
     store.dispatch({
       type: CLEAR_TEXT
     });
-
-    axios
-      .post("/api/login", user)
-      .then(res => {
-        const user = {
-          id: res.data._id,
-          firstName: res.data.firstName,
-          username: res.data.username
-        }
-        this.logInUser(user);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    login(user).then(res => {
+      const resUser = {
+        id: res.data._id,
+        firstName: res.data.firstName,
+        username: res.data.username
+      }
+      this.logInUser(resUser);
+    })
+    .catch(err => {
+      console.log(err);
+      alert("Wrong username and/or password")
+    });
   };
 
   // Needs to keep track of User ID in URL.

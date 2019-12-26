@@ -4,6 +4,7 @@ import store from "../../redux/store";
 import { HEADER_MOVE } from "../../redux/reducers/types";
 import { connect } from "react-redux";
 
+
 class Menu extends React.Component {
 
   componentDidMount () {
@@ -11,7 +12,6 @@ class Menu extends React.Component {
       type: HEADER_MOVE,
       action: false
     });
-    console.log(this.props)
   }
 
   render() {

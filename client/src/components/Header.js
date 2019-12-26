@@ -21,6 +21,7 @@ class Header extends React.Component {
 
   componentDidUpdate() {
     // Is User logged in? If so, change buttons to reflect new view
+    console.log(this.props);
   }
 
   render() {
