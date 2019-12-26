@@ -9,6 +9,7 @@
 * Node/Express
 * MongoDB/Mongoose
 * Axios
+* Bcrypt
 * Sass
 * Concurrently NPM
 * Nodemon
