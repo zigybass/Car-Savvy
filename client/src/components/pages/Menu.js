@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 class Menu extends React.Component {
 
   componentDidMount () {
+    console.log(this.props)
     store.dispatch({
       type: HEADER_MOVE,
       action: false

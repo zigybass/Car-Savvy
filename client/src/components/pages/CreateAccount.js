@@ -8,7 +8,8 @@ import {
   PASS_TEXT, 
   PASS_CONFIRM, 
   HEADER_MOVE,
-  CLEAR_TEXT
+  CLEAR_TEXT,
+  USER_LOGGED_IN
 } from "../../redux/reducers/types";
 import requests from "../../utilities/requests";
 
@@ -59,8 +60,8 @@ class CreateAccount extends React.Component {
     } else if ( input.firstName === "") {
       alert("Please enter a first name")
     } else {
-      this.checkPasswords(pass, passConfirm)
-    }
+      this.checkPasswords(pass, passConfirm);
+    };
   };
 
   checkPasswords (pass, pass2) {
@@ -69,7 +70,6 @@ class CreateAccount extends React.Component {
     } else if ( (pass === "") || (pass2 === "") ) {
       alert("Please enter a password")
     } else if ( pass === pass2 ) {
-      this.props.history.push("/menu")
       this.createAccount();
     } 
   };
@@ -81,15 +81,19 @@ class CreateAccount extends React.Component {
       username: input.username,
       password: input.password
     };
-    
     requests.createAccount(newUser).then(res => {
         console.log(res.data);
       })
       .catch(err => {
         console.log("Error: " + err);
+        alert("Someone already has that username")
       });
       store.dispatch({
         type: CLEAR_TEXT
+      });
+      store.dispatch({
+        type: USER_LOGGED_IN,
+        action: true
       })
   }
 
