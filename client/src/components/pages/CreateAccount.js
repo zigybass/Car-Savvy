@@ -10,7 +10,7 @@ import {
   HEADER_MOVE,
   CLEAR_TEXT
 } from "../../redux/reducers/types";
-import axios from "axios";
+import requests from "../../utilities/requests";
 
 class CreateAccount extends React.Component {
 
@@ -81,9 +81,8 @@ class CreateAccount extends React.Component {
       username: input.username,
       password: input.password
     };
-    axios
-      .post("/api/users", newUser)
-      .then(res => {
+    
+    requests.createAccount(newUser).then(res => {
         console.log(res.data);
       })
       .catch(err => {

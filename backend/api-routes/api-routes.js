@@ -11,13 +11,12 @@ module.exports = function(app) {
                 console.log(err)
             }
         }).then( dbUser => {
-            if (!dbUser) {
+            if ((!dbUser) || (dbUser.password !== password) ) {
                 return res.status(401).json({
                     message: "Username or password is incorrect"
                 })
-            }
-            if (dbUser) {
-                res.json(dbUser)
+            } else if (dbUser) {
+                res.json(dbUser);
             }
         })
     })

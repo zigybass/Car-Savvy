@@ -1,8 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Header from "../Header";
+import store from "../../redux/store";
 
-function OilChange() {
+class OilChange extends React.Component {
+
+  componentDidMount () {
+    console.log(store.getState());
+  }
+
+  render () {
   return (
     <div>
       <Header />
@@ -14,6 +21,7 @@ function OilChange() {
       </div>
     </div>
   );
+}
 }
 
 export default OilChange;
