@@ -28,21 +28,18 @@ module.exports = function(app) {
         User.findOne({ username: username}, (err, res) => {
             if (err) {
                 throw err;
-                console.log("Error: " + err)
             } else {
-                console.log("Post route response ELSE statement: " + res);
                 if (res) {
                     return res.status(401);
                 } else if (!res) {
                     return User.create(req.body).then( () => {
-                        console.log("user created")
+                        console.log("user created");
                     } );
-                }
-            } 
-            // else if (!res.data) {
-            //     console.log("res.data is falsey")
-            //     createUser(req.body);
-            // }
+                };
+            };
         });
+                res.json({
+                    message: "User created?"
+                })
     })
 };
