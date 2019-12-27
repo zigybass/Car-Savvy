@@ -18,9 +18,12 @@ const userSchema = new Schema({
     },
     password: {
         type: String
+    },
+    date: {
+        type: Date
     }
 })
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("Users", userSchema);
 
 module.exports = User;

@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const bcrypt = require("bcrypt");
 
 module.exports = function(app) {
 
@@ -26,27 +27,22 @@ module.exports = function(app) {
         const { username } = req.body;
         User.findOne({ username: username}, (err, res) => {
             if (err) {
-                console.log(err)
-            }
-        }).then( dbUser => {
-            if (dbUser) {
-                return res.status(401).json({
-                    message: "User already exists"
-                })
-            } else if (!dbUser) {
-
-                // Hash password here?
-
-                User.create(req.body), (err, res) => {
-                    if (err) {
-                        console.log("POST User Err: " + err)
-                    } else {
-                        res.json({
-                            message: "user created"
-                        })
-                    }
+                throw err;
+                console.log("Error: " + err)
+            } else {
+                console.log("Post route response ELSE statement: " + res);
+                if (res) {
+                    return res.status(401);
+                } else if (!res) {
+                    return User.create(req.body).then( () => {
+                        console.log("user created")
+                    } );
                 }
-            }
-        })
+            } 
+            // else if (!res.data) {
+            //     console.log("res.data is falsey")
+            //     createUser(req.body);
+            // }
+        });
     })
 };
