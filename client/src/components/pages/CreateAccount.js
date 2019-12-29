@@ -70,33 +70,24 @@ class CreateAccount extends React.Component {
     } else if ( (pass === "") || (pass2 === "") ) {
       alert("Please enter a password")
     } else if ( pass === pass2 ) {
-      this.findAccount();
+      this.createAccount();
     } 
   };
 
   // Needs fine-tuning. Err keeps being passed back, need to clarify logic. Also has the password in the backend.
-  findAccount = () => {
+  createAccount = () => {
     const input = this.props;
     const newUser = {
       firstName: input.firstName,
       username: input.username,
       password: input.password
     };
-    requests.findAccount(newUser).then(res => {
-        console.log(res.data);
-        if (res.data.username === newUser.username) {
-          alert("Username already exists")
-        };
-      })
-      .catch(err => {
-        requests.createAccount(newUser).then(res => {
-          console.log(res.data);
-        })
-        console.log("Error: " + err);
-      });
-      store.dispatch({
-        type: CLEAR_TEXT
-      });
+    requests.createAccount(newUser).then( res => {
+      console.log(res);
+    });
+    store.dispatch({
+      type: CLEAR_TEXT
+    });
   }
 
   goBack = e => {

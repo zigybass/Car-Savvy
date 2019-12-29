@@ -9,7 +9,7 @@ module.exports = function(app) {
     const { username, password } = req.body;
     User.findOne({ username: username }, (err, res) => {
       if (err) {
-        console.log(err);
+        throw err;
       }
     }).then(dbUser => {
       if (!dbUser || dbUser.password !== password) {
@@ -22,31 +22,20 @@ module.exports = function(app) {
     });
   });
 
-  // Checks for used username, then creates user in DB if no username exists.
+  // Checks for used username, then creates user in DB if no username exists. 
+  // Update: Use Result instead of res. Helps distinguish variables
   app.post("/api/users", (req, res) => {
-    console.log("CreateAcc Attempt: " + JSON.stringify(req.body));
-    const { username } = req.body;
-    User.findOne({ username: username }, (err, res) => {
-      if (err) {
-        throw err;
-      }; 
-    }).then( dbUser => {
-        res.json(dbUser);
-        createUser(req.body)
-    });
+   console.log("api users: " + JSON.stringify(req.body));
+   User.create(req.body).then( result => {
+       res.json(result)
+   });
   });
 
   app.post("/api/createAccount", (req, res) => {
-      console.log("create Account: " + req.body);
-      res.json({
-          message: "hits backend"
-      });
-      User.create(req.body).then(res => {
-          console.log(res);
-      })
+      console.log("api create account")
   })
 
   const createUser = user => {
-      console.log("createUser function: " + user)
-  }
+      console.log("createUser function: " + JSON.stringify(user))
+  };
 };

@@ -9,16 +9,16 @@ function requests () {
       .post("/api/login", user);
   };
 
-  function findAccount (newUser) {
+  function createAccount (newUser) {
     return axios.post("/api/users", newUser);
   }
 
-  function createAccount (newUser) {
-    return axios.post("/api/createAccount")
-  }
+  // function createAccount (newUser) {
+  //   return axios.post("/api/createAccount", newUser)
+  // }
 
   return {
-    login, findAccount, createAccount
+    login, createAccount
   }
 
 }
