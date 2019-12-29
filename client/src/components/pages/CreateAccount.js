@@ -9,7 +9,7 @@ import {
   PASS_CONFIRM, 
   HEADER_MOVE,
   CLEAR_TEXT,
-  USER_LOGGED_IN
+  // USER_LOGGED_IN
 } from "../../redux/reducers/types";
 import requests from "../../utilities/requests";
 
@@ -58,7 +58,7 @@ class CreateAccount extends React.Component {
     if ( input.username === "") {
       alert("Please enter a username")
     } else if ( input.firstName === "") {
-      alert("Please enter a first name")
+      alert("Please enter a first name");
     } else {
       this.checkPasswords(pass, passConfirm);
     };
@@ -70,34 +70,33 @@ class CreateAccount extends React.Component {
     } else if ( (pass === "") || (pass2 === "") ) {
       alert("Please enter a password")
     } else if ( pass === pass2 ) {
-      this.createAccount();
+      this.findAccount();
     } 
   };
 
   // Needs fine-tuning. Err keeps being passed back, need to clarify logic. Also has the password in the backend.
-  createAccount = () => {
+  findAccount = () => {
     const input = this.props;
     const newUser = {
       firstName: input.firstName,
       username: input.username,
       password: input.password
     };
-    requests.createAccount(newUser).then(res => {
+    requests.findAccount(newUser).then(res => {
         console.log(res.data);
-        console.log("User created?");
-        this.props.history.push("/menu");
+        if (res.data.username === newUser.username) {
+          alert("Username already exists")
+        };
       })
       .catch(err => {
+        requests.createAccount(newUser).then(res => {
+          console.log(res.data);
+        })
         console.log("Error: " + err);
-        alert("Someone already has that username")
       });
       store.dispatch({
         type: CLEAR_TEXT
       });
-      store.dispatch({
-        type: USER_LOGGED_IN,
-        action: true
-      })
   }
 
   goBack = e => {
