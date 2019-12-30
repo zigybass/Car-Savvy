@@ -82,13 +82,18 @@ class CreateAccount extends React.Component {
       username: input.username,
       password: input.password
     };
-    requests.createAccount(newUser).then( res => {
-      console.log(res);
+    requests.createAccount(newUser).then(response => {
+      if (response.data.message == "user exists") {
+        alert("Username already exists")
+      }
+      console.log(response)
+    }).catch( err => {
+      console.log(err)
     });
+
     store.dispatch({
       type: CLEAR_TEXT
-    });
-  }
+    })};
 
   goBack = e => {
     console.log(this.props)
