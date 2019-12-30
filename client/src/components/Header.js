@@ -40,7 +40,7 @@ class Header extends React.Component {
     return (
       <div className={slideClass}>
         <div className="container" id="navCont">
-        <div id="userGreeting" style={{ display: findCarBtn}} >Welcome Back {firstName}!</div>
+        <div id="userGreeting" style={{ display: findCarBtn}} >Welcome {firstName}!</div>
           <Link
             to="/login"
             onClick={this.slideOut}

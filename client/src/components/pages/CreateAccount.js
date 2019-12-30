@@ -10,6 +10,7 @@ import {
   HEADER_MOVE,
   CLEAR_TEXT,
   USER_FIRSTNAME,
+  USER_LOGGED_IN,
   // USER_LOGGED_IN
 } from "../../redux/reducers/types";
 import requests from "../../utilities/requests";
@@ -93,6 +94,10 @@ class CreateAccount extends React.Component {
         store.dispatch({
           type: USER_FIRSTNAME,
           text: response.data.firstName
+        });
+        store.dispatch({
+          type: USER_LOGGED_IN,
+          action: true
         })
       }
     }).catch( err => {
