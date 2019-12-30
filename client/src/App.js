@@ -6,6 +6,7 @@ import Sorry from "../src/components/pages/Sorry";
 import CreateAccount from "../src/components/pages/CreateAccount";
 import Menu from "../src/components/pages/Menu";
 import OilChange from "../src/components/pages/OilChange";
+import FindCar from "../src/components/pages/FindCar";
 import TireRotation from "../src/components/pages/TireRotation";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -49,6 +50,9 @@ class App extends React.Component {
                   <TireRotation />
                 </Route>
                 <Route path="/oilchange"></Route>
+                <Route path="/findCar">
+                  <FindCar />
+                </Route>
                 <Route>
                   <Sorry />
                 </Route>

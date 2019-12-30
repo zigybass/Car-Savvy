@@ -2,7 +2,7 @@ import React from "react";
 import store from "../../redux/store";
 import { HEADER_MOVE } from "../../redux/reducers/types";
 
-class Parts extends React.Component {
+class Repairs extends React.Component {
 
   componentDidMount () {
     store.dispatch({
@@ -15,11 +15,11 @@ class Parts extends React.Component {
   return (
     <div> 
       <div className="container">
-        <h4 className="parts">Parts Page</h4>
+        <h4 className="repairs">Repairs Page</h4>
       </div>
     </div>
   );
 }
 }
 
-export default Parts;
+export default Repairs;

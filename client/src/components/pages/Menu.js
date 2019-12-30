@@ -1,7 +1,7 @@
 import React from "react";
 import BubbleLink from "../BubbleLink";
 import store from "../../redux/store";
-import { HEADER_MOVE } from "../../redux/reducers/types";
+import { HEADER_MOVE, USER_LOGGED_IN } from "../../redux/reducers/types";
 import { connect } from "react-redux";
 
 class Menu extends React.Component {
@@ -11,6 +11,12 @@ class Menu extends React.Component {
     store.dispatch({
       type: HEADER_MOVE,
       action: false
+    });
+
+    // This isn't best case. Use protected routes for auth and logged in status
+    store.dispatch({
+      type: USER_LOGGED_IN,
+      action: true
     });
   }
 

@@ -57,7 +57,9 @@ class Header extends React.Component {
           >
             <Button id="createAccBtn" name="Create Account" />
           </Link>
-          <Link style={{ display: findCarBtn }}>
+          <Link 
+          style={{ display: findCarBtn }}
+          to="/findCar">
             <Button id="findCarBtn" name="Find Car" />
           </Link>
         </div>
