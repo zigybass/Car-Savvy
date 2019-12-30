@@ -9,6 +9,7 @@ import {
   PASS_CONFIRM, 
   HEADER_MOVE,
   CLEAR_TEXT,
+  USER_FIRSTNAME,
   // USER_LOGGED_IN
 } from "../../redux/reducers/types";
 import requests from "../../utilities/requests";
@@ -83,14 +84,20 @@ class CreateAccount extends React.Component {
       password: input.password
     };
     requests.createAccount(newUser).then(response => {
-      if (response.data.message == "user exists") {
+      if (response.data.message === "user exists") {
         alert("Username already exists")
+      } else {
+        console.log(response)
+        alert("Thanks for signing up!");
+        this.props.history.push("/menu");
+        store.dispatch({
+          type: USER_FIRSTNAME,
+          text: response.data.firstName
+        })
       }
-      console.log(response)
     }).catch( err => {
       console.log(err)
     });
-
     store.dispatch({
       type: CLEAR_TEXT
     })};

@@ -19,8 +19,7 @@ function requests () {
 
   return {
     login, createAccount
-  }
-
-}
+  };
+};
 
 export default requests();
