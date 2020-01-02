@@ -26,8 +26,11 @@ const userSchema = new Schema({
 
 const salt = bcrypt.genSaltSync(10);
 
+userSchema.methods.comparePasswords = function (plainPass) {
+    return bcrypt.compareSync(plainPass, this.password);
+};
+
 userSchema.pre("save", function() {
-    console.log("hashing...");
     this.password = bcrypt.hashSync(this.password, salt, (err, hash) => {
         if (err) {
             console.log(err)

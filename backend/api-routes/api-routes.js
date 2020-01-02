@@ -8,9 +8,11 @@ module.exports = function(app) {
     User.findOne({ username: username }, (err, res) => {
       if (err) {
         throw err;
-      }
+      };
     }).then(dbUser => {
-      if (!dbUser || dbUser.password !== password) {
+      const verify = dbUser.comparePasswords(password);
+      console.log(verify);
+      if (!dbUser || !verify) {
         return res.status(401).json({
           message: "Username or password is incorrect"
         });
