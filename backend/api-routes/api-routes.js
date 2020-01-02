@@ -1,5 +1,4 @@
 const User = require("../models/User");
-const bcrypt = require("bcrypt");
 
 module.exports = function(app) {
   // Needs authentication here, but logs user in
@@ -26,7 +25,7 @@ module.exports = function(app) {
   app.post("/api/users", (req, res) => {
     console.log("api users: " + JSON.stringify(req.body));
     const { username } = req.body;
-    User.findOne({ username: username })
+        User.findOne({ username: username })
       .then(result => {
         if (result) {
           res.json({
@@ -34,6 +33,7 @@ module.exports = function(app) {
           });
           console.log("line 33: username exists");
         } else if (!result) {
+          console.log("line 37: " + JSON.stringify(req.body))
           User.create(req.body).then(result => {
             res.json(result);
           });
@@ -52,7 +52,4 @@ module.exports = function(app) {
     console.log("api create account");
   });
 
-  const createUser = user => {
-    console.log("createUser function: " + JSON.stringify(user));
-  };
 };

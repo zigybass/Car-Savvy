@@ -45,7 +45,6 @@ class FindCar extends React.Component {
         <div className="createAccountCont">
           <h4>Find Your Car</h4>
           <form>
-              <input />
           </form>
         </div>
       </div>
