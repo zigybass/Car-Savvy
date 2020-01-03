@@ -1,7 +1,8 @@
 const User = require("../models/User");
+const jwt = require("jsonwebtoken");
 
 module.exports = function(app) {
-  // Needs authentication here, but logs user in
+
   app.post("/api/login", function(req, res) {
     console.log("Login attempt: " + JSON.stringify(req.body));
     const { username, password } = req.body;
@@ -11,13 +12,14 @@ module.exports = function(app) {
       };
     }).then(dbUser => {
       const verify = dbUser.comparePasswords(password);
-      console.log(verify);
       if (!dbUser || !verify) {
         return res.status(401).json({
           message: "Username or password is incorrect"
         });
-      } else if (dbUser) {
-        res.json(dbUser);
+      } else if (dbUser && verify) {
+        const user = { name: username}
+        const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+        res.json({ accessToken: accessToken });
       }
     });
   });

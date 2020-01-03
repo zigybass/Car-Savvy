@@ -11,7 +11,7 @@ import TireRotation from "../src/components/pages/TireRotation";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../src/redux/store";
-import "../src/components/css/style.scss";
+import "../src/components/css/style.css";
 
 class App extends React.Component {
 

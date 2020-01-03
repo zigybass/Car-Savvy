@@ -46,6 +46,7 @@ class Login extends React.Component {
       type: CLEAR_TEXT
     });
     requests.login(user).then(res => {
+      console.log(res);
       const resUser = {
         id: res.data._id,
         firstName: res.data.firstName,
@@ -59,7 +60,7 @@ class Login extends React.Component {
     });
   };
 
-  // Needs to keep track of User ID in URL.
+  // Needs to keep track of User ID in URL and add JWT to session.
   logInUser (user) {
     console.log(user)
     store.dispatch({
