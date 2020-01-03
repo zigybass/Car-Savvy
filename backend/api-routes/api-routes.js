@@ -21,7 +21,7 @@ module.exports = function(app) {
           user: dbUser.username,
           name: dbUser.firstName
         }
-        const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+        const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: 300});
         res.json({ 
           accessToken: accessToken,
           name: dbUser.firstName

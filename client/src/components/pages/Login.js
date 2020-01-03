@@ -45,15 +45,19 @@ class Login extends React.Component {
     store.dispatch({
       type: CLEAR_TEXT
     });
-    requests.login(user).then(res => {
-      console.log(res);
-      const resUser = { firstName: res.data.name };
-      this.logInUser(resUser);
-    })
-    .catch(err => {
-      console.log(err);
-      alert("Wrong username and/or password");
-    });
+    if ( (input.username === "" || (input.password === "") )) {
+      alert("Please enter a Username and Password")
+    } else {
+      requests.login(user).then(res => {
+        console.log(res);
+        const resUser = { firstName: res.data.name };
+        this.logInUser(resUser);
+      })
+      .catch(err => {
+        console.log(err);
+        alert("Wrong username and/or password");
+      });
+    }
   };
 
   // Needs to keep track of User ID in URL and add JWT to session.
