@@ -47,11 +47,7 @@ class Login extends React.Component {
     });
     requests.login(user).then(res => {
       console.log(res);
-      const resUser = {
-        id: res.data._id,
-        firstName: res.data.firstName,
-        username: res.data.username
-      }
+      const resUser = { firstName: res.data.name };
       this.logInUser(resUser);
     })
     .catch(err => {

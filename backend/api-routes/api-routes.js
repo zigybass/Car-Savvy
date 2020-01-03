@@ -5,7 +5,7 @@ module.exports = function(app) {
 
   app.post("/api/login", function(req, res) {
     console.log("Login attempt: " + JSON.stringify(req.body));
-    const { username, password } = req.body;
+    const { username, password, firstName } = req.body;
     User.findOne({ username: username }, (err, res) => {
       if (err) {
         throw err;
@@ -13,13 +13,19 @@ module.exports = function(app) {
     }).then(dbUser => {
       const verify = dbUser.comparePasswords(password);
       if (!dbUser || !verify) {
-        return res.status(401).json({
+        return res.sendStatus(401).json({
           message: "Username or password is incorrect"
         });
       } else if (dbUser && verify) {
-        const user = { name: username}
+        const user = { 
+          user: dbUser.username,
+          name: dbUser.firstName
+        }
         const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-        res.json({ accessToken: accessToken });
+        res.json({ 
+          accessToken: accessToken,
+          name: dbUser.firstName
+         });
       }
     });
   });

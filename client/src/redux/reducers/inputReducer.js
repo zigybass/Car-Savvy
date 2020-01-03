@@ -15,7 +15,6 @@ const initialInputState = {
 }
 
 function inputReducer(state = initialInputState, action) {
-  console.log(action)
     switch (action.type) {
       case USER_TEXT:
         return {...state, username: action.text}

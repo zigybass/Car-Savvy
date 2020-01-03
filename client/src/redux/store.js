@@ -20,6 +20,4 @@ const appState = {}
 // Store
 const store = createStore(rootReducer, appState)
 
-console.log(store.getState())
-
 export default store;
