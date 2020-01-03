@@ -10,6 +10,7 @@
 * MongoDB/Mongoose
 * Axios
 * Bcrypt
+* JSONWebTokens
 * Sass
 * Concurrently NPM
 * Nodemon
