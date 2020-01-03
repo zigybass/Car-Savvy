@@ -45,13 +45,15 @@ class Login extends React.Component {
     store.dispatch({
       type: CLEAR_TEXT
     });
-    if ( (input.username === "" || (input.password === "") )) {
+    if ( !input.username || !input.password)  {
       alert("Please enter a Username and Password")
     } else {
       requests.login(user).then(res => {
         console.log(res);
+        const token = res.data.accessToken;
         const resUser = { firstName: res.data.name };
         this.logInUser(resUser);
+        localStorage.setItem("token", token);
       })
       .catch(err => {
         console.log(err);
