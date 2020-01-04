@@ -10,6 +10,7 @@ function requests () {
   };
 
   function logout () {
+    console.log("removing token");
     return localStorage.removeItem("token");
   };
 

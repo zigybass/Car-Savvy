@@ -4,6 +4,7 @@ import Button from "./Button";
 import store from "../redux/store";
 import { connect } from "react-redux";
 import { HEADER_MOVE, USER_LOGGED_IN } from "../redux/reducers/types";
+import requests from "../utilities/requests";
 
 class Header extends React.Component {
   // Triggers menu slide out
@@ -18,17 +19,16 @@ class Header extends React.Component {
     store.dispatch({
       type: USER_LOGGED_IN,
       action: false
-    })
-  }
+    });
+    requests.logout();
+  };
 
   componentDidMount() {
-    console.log(this.props);
     // Is new User logged in? Check and change view as necessary
   }
 
   componentDidUpdate() {
     // Is User logged in? If so, change buttons to reflect new view
-    console.log(this.props);
   }
 
   render() {
