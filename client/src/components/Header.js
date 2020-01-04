@@ -3,7 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import Button from "./Button";
 import store from "../redux/store";
 import { connect } from "react-redux";
-import { HEADER_MOVE } from "../redux/reducers/types";
+import { HEADER_MOVE, USER_LOGGED_IN } from "../redux/reducers/types";
 
 class Header extends React.Component {
   // Triggers menu slide out
@@ -12,6 +12,13 @@ class Header extends React.Component {
       type: HEADER_MOVE,
       action: true
     });
+  };
+
+  logout () {
+    store.dispatch({
+      type: USER_LOGGED_IN,
+      action: false
+    })
   }
 
   componentDidMount() {
@@ -43,13 +50,21 @@ class Header extends React.Component {
           <div id="userGreeting" style={{ display: findCarBtn }}>
             Welcome {firstName}!
           </div>
-          <Link
-            to="/login"
-            onClick={this.slideOut}
-            style={{ display: userBtns }}
-          >
-            <Button id="loginBtn" name="Login" />
-          </Link>
+          {!loggedIn ? (
+            <Link
+              to="/login"
+              onClick={this.slideOut}
+              style={{ display: userBtns }}
+            >
+              <Button id="loginBtn" name="Login" />
+            </Link>
+          ) : (
+            <Link 
+            to="/"
+            onClick={this.logout}>
+              <Button id="logoutBtn" name="Logout" />
+            </Link>
+          )}
           <Link
             to="/createAccount"
             onClick={this.slideOut}
@@ -57,9 +72,7 @@ class Header extends React.Component {
           >
             <Button id="createAccBtn" name="Create Account" />
           </Link>
-          <Link 
-          style={{ display: findCarBtn }}
-          to="/findCar">
+          <Link style={{ display: findCarBtn }} to="/findCar">
             <Button id="findCarBtn" name="Find Car" />
           </Link>
         </div>

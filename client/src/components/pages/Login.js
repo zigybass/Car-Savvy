@@ -14,11 +14,7 @@ class Login extends React.Component {
       type: HEADER_MOVE,
       action: true
     })
-  }
-
-  componentDidUpdate() {
-    console.log(this.props);
-  }
+  };
 
   onChange = e => {
     const inputName = e.target.name;
@@ -46,7 +42,7 @@ class Login extends React.Component {
       type: CLEAR_TEXT
     });
     if ( !input.username || !input.password)  {
-      alert("Please enter a Username and Password")
+      alert("Please enter a Username and Password");
     } else {
       requests.login(user).then(res => {
         console.log(res);

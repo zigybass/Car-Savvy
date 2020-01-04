@@ -9,16 +9,20 @@ function requests () {
       .post("/api/login", user);
   };
 
+  function logout () {
+    return localStorage.removeItem("token");
+  };
+
   function createAccount (newUser) {
     return axios.post("/api/users", newUser);
-  }
+  };
 
   // function createAccount (newUser) {
   //   return axios.post("/api/createAccount", newUser)
   // }
 
   return {
-    login, createAccount
+    login, createAccount, logout
   };
 };
 
