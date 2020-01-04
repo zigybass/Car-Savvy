@@ -64,17 +64,17 @@ class Header extends React.Component {
             onClick={this.logout}>
               <Button id="logoutBtn" name="Logout" />
             </Link>
-          )}
-          <Link
+          )};
+          {!loggedIn ? <Link
             to="/createAccount"
             onClick={this.slideOut}
             style={{ display: userBtns }}
           >
             <Button id="createAccBtn" name="Create Account" />
-          </Link>
-          <Link style={{ display: findCarBtn }} to="/findCar">
+          </Link> : null};
+          {!loggedIn ? null : <Link to="/findCar">
             <Button id="findCarBtn" name="Find Car" />
-          </Link>
+          </Link>}
         </div>
       </div>
     );
