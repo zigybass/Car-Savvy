@@ -25,11 +25,7 @@ class Header extends React.Component {
 
   componentDidMount() {
     // Is new User logged in? Check and change view as necessary
-  }
-
-  componentDidUpdate() {
-    // Is User logged in? If so, change buttons to reflect new view
-  }
+  };
 
   render() {
     const { headerOpen, loggedIn, firstName } = this.props;

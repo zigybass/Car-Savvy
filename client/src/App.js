@@ -9,28 +9,26 @@ import OilChange from "../src/components/pages/OilChange";
 import FindCar from "../src/components/pages/FindCar";
 import TireRotation from "../src/components/pages/TireRotation";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Protected from "./components/pages/Protected";
+import PrivateRoute from "./components/PrivateRoute";
 import { Provider } from "react-redux";
 import store from "../src/redux/store";
 import "../src/components/css/style.css";
 
 class App extends React.Component {
-
-
-  componentDidUpdate () {
-    console.log(store.getState());
-  }
+  // componentDidUpdate () {
+  //   console.log(store.getState());
+  // }
 
   render() {
-
     return (
       <Router>
         <Provider store={store}>
           <div className="App">
-          <Header/>
+            <Header />
             <div className="container mainApp">
-              
               <Switch>
-                <Route exact path="/" >  
+                <Route exact path="/">
                   <Title />
                 </Route>
                 <Route path="/login">
@@ -40,7 +38,7 @@ class App extends React.Component {
                   <CreateAccount />
                 </Route>
                 <Route path="/menu">
-                <Title />
+                  <Title />
                   <Menu />
                 </Route>
                 <Route path="/oilChange">
@@ -56,11 +54,12 @@ class App extends React.Component {
                 <Route>
                   <Sorry />
                 </Route>
+                <PrivateRoute exact path="/protected" component={Protected} />
               </Switch>
             </div>
           </div>
-      </Provider>
-        </Router>
+        </Provider>
+      </Router>
     );
   }
 }
