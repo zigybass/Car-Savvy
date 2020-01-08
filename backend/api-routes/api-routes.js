@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
+const authMiddle = require("../jwtAuth/authMiddle");
 
 module.exports = function(app) {
 
@@ -58,4 +59,11 @@ module.exports = function(app) {
         console.log(err);
       });
   });
+
+  app.get("/api/verify", authMiddle, (req, res) => {
+    console.log("line64 " + JSON.stringify(req.headers))
+    res.json({
+      message: "Verify backend"
+    })
+  })
 };

@@ -8,7 +8,6 @@ const initialUserState = {
 
 function userReducer (state = initialUserState, action) {
 
-    console.log(action)
     switch (action.type) {
         case USER_FIRSTNAME:
             return {...state, firstName: action.text}

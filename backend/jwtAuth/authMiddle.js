@@ -1,9 +1,16 @@
-// import jwt from "jsonwebtoken";
+const jwt = require("jsonwebtoken");
 
 function authenticateToken(req, res, next) {
-    const authorization = JSON.stringify(req.headers);
-    console.log("line5 authmiddle: " + authorization);
-    
+    const {authorization} = req.headers;
+    console.log(req.headers);
+    const token = authorization && authorization.split(' ')[1];
+    if (token == null) return res.sendStatus(401);
+
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+        if (err) return res.sendStatus(403);
+        req.user = user
+    });
+
     next();
 }
 
