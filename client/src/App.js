@@ -16,11 +16,9 @@ import store from "../src/redux/store";
 import "../src/components/css/style.css";
 
 class App extends React.Component {
-  // componentDidUpdate () {
-  //   console.log(store.getState());
-  // }
 
   render() {
+    
     return (
       <Router>
         <Provider store={store}>
@@ -51,11 +49,11 @@ class App extends React.Component {
                 <Route path="/findCar">
                   <FindCar />
                 </Route>
+                <PrivateRoute path="/protected" component={Protected} />
                 <Route>
                   <Sorry />
                 </Route>
-                <PrivateRoute exact path="/protected" component={Protected} />
-              </Switch>
+                </Switch>
             </div>
           </div>
         </Provider>

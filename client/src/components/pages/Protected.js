@@ -1,7 +1,7 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+// import { withRouter } from "react-router-dom";
 
-function Provided () {
+const Protected = function() {
     return (
         <div className="container">
             <h4>This is protected...</h4>
@@ -9,4 +9,4 @@ function Provided () {
     )
 };
 
-export default withRouter(Provided);
+export default Protected;
