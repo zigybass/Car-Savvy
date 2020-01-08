@@ -1,13 +1,14 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import fakeAuth from "../utilities/fakeAuth";
+import requests from "../utilities/requests";
+
 
 const PrivateRoute = ({component: Component, ...rest}) => (
     <Route {...rest} render={(props) => (
-        fakeAuth ? 
+        requests.checkToken() ? 
         <Component {...props} /> :
         <Redirect to="/login"/>
     )} />
 );
 
-export default PrivateRoute;
+export default (PrivateRoute);

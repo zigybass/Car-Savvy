@@ -58,9 +58,4 @@ module.exports = function(app) {
         console.log(err);
       });
   });
-
-  app.post("/api/createAccount", (req, res) => {
-    console.log("api create account");
-  });
-
 };

@@ -1,7 +1,6 @@
 import axios from "axios";
 
-// Requests to back end
-
+// Requests to back end and managing access tokens
 function requests () {
 
   function login (user) {
@@ -10,7 +9,6 @@ function requests () {
   };
 
   function logout () {
-    console.log("removing token");
     return localStorage.removeItem("token");
   };
 
@@ -18,12 +16,12 @@ function requests () {
     return axios.post("/api/users", newUser);
   };
 
-  // function createAccount (newUser) {
-  //   return axios.post("/api/createAccount", newUser)
-  // }
+  function checkToken () {
+    return localStorage.getItem("token");
+  };
 
   return {
-    login, createAccount, logout
+    login, createAccount, logout, checkToken
   };
 };
 

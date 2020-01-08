@@ -4,7 +4,7 @@ import React from "react";
 const Protected = function() {
     return (
         <div className="container">
-            <h4>This is protected...</h4>
+            <h4>This info should only be seen when User is logged in</h4>
         </div>
     )
 };

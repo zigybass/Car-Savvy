@@ -7,6 +7,7 @@ import { HEADER_MOVE, USER_LOGGED_IN } from "../redux/reducers/types";
 import requests from "../utilities/requests";
 
 class Header extends React.Component {
+
   // Triggers menu slide out
   slideOut() {
     store.dispatch({
@@ -21,10 +22,6 @@ class Header extends React.Component {
       action: false
     });
     requests.logout();
-  };
-
-  componentDidMount() {
-    // Is new User logged in? Check and change view as necessary
   };
 
   render() {
