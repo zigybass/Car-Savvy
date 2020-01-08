@@ -24,14 +24,12 @@ class App extends React.Component {
 
   componentDidMount () {
     const token = requests.checkToken();
-    console.log(token)
     if (token) {
       axios.get("/api/verify", {
         headers: {
           authorization: "Bearer " + token
         }
       }).then( (response) => {
-        console.log(response.data);
         store.dispatch({
           type: USER_LOGGED_IN,
           action: true

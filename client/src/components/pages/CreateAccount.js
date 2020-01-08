@@ -88,17 +88,11 @@ class CreateAccount extends React.Component {
       if (response.data.message === "user exists") {
         alert("Username already exists")
       } else {
-        console.log(response)
         alert("Thanks for signing up!");
-        this.props.history.push("/menu");
-        store.dispatch({
-          type: USER_FIRSTNAME,
-          text: response.data.firstName
-        });
-        store.dispatch({
-          type: USER_LOGGED_IN,
-          action: true
-        })
+        const token = response.data.accessToken;
+        const resUser = { firstName: response.data.name};
+        localStorage.setItem("token", token);
+        this.logInUser(resUser);
       }
     }).catch( err => {
       console.log(err)
@@ -106,6 +100,19 @@ class CreateAccount extends React.Component {
     store.dispatch({
       type: CLEAR_TEXT
     })};
+
+    logInUser (user) {
+      console.log(user)
+      store.dispatch({
+        type: USER_FIRSTNAME,
+        text: user.firstName
+      });
+      store.dispatch({
+        type: USER_LOGGED_IN,
+        action: true
+      })
+      this.props.history.push("/menu");
+    }
 
   goBack = e => {
     console.log(this.props)

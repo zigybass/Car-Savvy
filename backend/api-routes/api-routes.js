@@ -46,8 +46,17 @@ module.exports = function(app) {
           console.log("line 33: username exists");
         } else if (!result) {
           console.log("line 37: " + JSON.stringify(req.body))
-          User.create(req.body).then(result => {
-            res.json(result);
+          User.create(req.body).then(dbUser => {
+            const user = { 
+              user: dbUser.username,
+              name: dbUser.firstName
+            }
+            const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+            res.json({ 
+              accessToken: accessToken,
+              name: dbUser.firstName,
+              id: dbUser._id
+             });
           });
           console.log("line 39");
         } else {
@@ -61,7 +70,6 @@ module.exports = function(app) {
   });
 
   app.get("/api/verify", authMiddle, (req, res) => {
-    console.log("line64 " + JSON.stringify(req.headers))
     res.json({
       message: "Verify backend"
     })
