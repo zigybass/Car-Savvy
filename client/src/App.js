@@ -39,16 +39,9 @@ class App extends React.Component {
                   <Title />
                   <Menu />
                 </Route>
-                <Route path="/oilChange">
-                  <OilChange />
-                </Route>
-                <Route path="/tireRotation">
-                  <TireRotation />
-                </Route>
-                <Route path="/oilchange"></Route>
-                <Route path="/findCar">
-                  <FindCar />
-                </Route>
+                <PrivateRoute path="/oilChange" component={OilChange} />
+                <PrivateRoute path="/tireRotation" component={TireRotation} />
+                <PrivateRoute path="/findCar" component={FindCar} />
                 <PrivateRoute path="/protected" component={Protected} />
                 <Route>
                   <Sorry />
