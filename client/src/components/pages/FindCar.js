@@ -1,18 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import store from "../../redux/store";
 import { 
   HEADER_MOVE,
   CLEAR_TEXT
 } from "../../redux/reducers/types";
+import { connect } from "react-redux";
 
-
-// Need to design where FindCar btn goes.
+// Need to design where FindCar btn goes. Seems the ternary operator is messing with styles?
 
 class FindCar extends React.Component {
 
   componentDidMount() {
-      console.log(store.getState())
+      console.log(this.props);
     store.dispatch({
         type: HEADER_MOVE,
         action: true
@@ -52,4 +52,11 @@ class FindCar extends React.Component {
   }
 };
 
-export default FindCar;
+const mapStateToProps = (state) => {
+  const { input } = state;
+  return {
+    mileage: input.mileage
+    }
+}
+
+export default withRouter(connect(mapStateToProps)(FindCar));

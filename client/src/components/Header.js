@@ -55,7 +55,10 @@ class Header extends React.Component {
             <Link 
             to="/"
             onClick={this.logout}>
-              <Button id="logoutBtn" name="Logout" />
+              <Button 
+              id="logoutBtn" 
+              name="Logout"
+              style={{ display: userBtns }} />
             </Link>
           )};
           {!loggedIn ? <Link
@@ -66,7 +69,7 @@ class Header extends React.Component {
             <Button id="createAccBtn" name="Create Account" />
           </Link> : null};
           {!loggedIn ? null : <Link to="/findCar">
-            <Button id="findCarBtn" name="Find Car" />
+            <Button name="Find Car" />
           </Link>}
         </div>
       </div>

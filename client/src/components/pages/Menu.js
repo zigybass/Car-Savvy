@@ -28,12 +28,6 @@ class Menu extends React.Component {
       type: HEADER_MOVE,
       action: false
     });
-
-    // This isn't best case. Use protected routes for auth and logged in status
-    // store.dispatch({
-    //   type: USER_LOGGED_IN,
-    //   action: true
-    // });
   }
 
   render() {
