@@ -78,11 +78,6 @@ h5 {
           animation: fadeInForm 1s linear;
 }
 
-#findCarBtn {
-  margin-top: 4rem;
-  margin-left: 2rem;
-}
-
 #loginBtn {
   margin-top: 4rem;
   margin-bottom: 1rem;
@@ -183,6 +178,11 @@ h5 {
   font-weight: 300;
   color: #e7e7e7;
   margin-left: 1rem;
+}
+
+#selectOptions input[type="text"] {
+  margin-left: 5rem;
+  color: #e7e7e7;
 }
 
 @-webkit-keyframes titleSlide {
