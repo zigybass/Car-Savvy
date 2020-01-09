@@ -4,12 +4,12 @@ import store from "../../redux/store";
 import { HEADER_MOVE, CLEAR_TEXT } from "../../redux/reducers/types";
 import { connect } from "react-redux";
 import { Select } from "react-materialize";
+import carMake from "../../utilities/carList";
 
 // Need to design where FindCar btn goes. Seems the ternary operator is messing with styles?
 
 class FindCar extends React.Component {
   componentDidMount() {
-    console.log(this.props);
     store.dispatch({
       type: HEADER_MOVE,
       action: true
@@ -30,6 +30,14 @@ class FindCar extends React.Component {
   };
 
   render() {
+
+    const mapMake = 
+    carMake.map( (make, i) => {
+      return (
+        <option value={i}>{make}</option>
+      )
+    } );
+
     return (
       <div className="container">
         <Link to="/" id="accountArrow" onClick={this.goBack}>
@@ -39,6 +47,7 @@ class FindCar extends React.Component {
         </Link>
         <div className="createAccountCont">
           <h4>Find Your Car</h4>
+
           <Select
           id="selectOptions"
             onChange={function noRefCheck() {}}
@@ -65,9 +74,8 @@ class FindCar extends React.Component {
             <option disabled value="">
               Make
             </option>
+            {mapMake}
             <option value="1">Ford</option>
-            <option value="2">Ferrari</option>
-            <option value="3">Lotus</option>
           </Select>
           <Select
           id="selectOptions"
