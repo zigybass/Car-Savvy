@@ -12,8 +12,10 @@
 * Bcrypt
 * JSONWebTokens
 * Sass
+* Materialize UI
 * Concurrently NPM
 * Nodemon
+* Classnames Package
 * More to be implemented...
 
 
