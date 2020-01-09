@@ -29,7 +29,11 @@ module.exports = function(app) {
           id: dbUser._id
          });
       }
-    });
+    }).catch( err => {
+      res.sendStatus(401).json({
+        message: err
+      })
+    })
   });
 
   // Checks for used username, then creates user in DB if no username exists.

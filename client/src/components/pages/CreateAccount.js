@@ -76,7 +76,6 @@ class CreateAccount extends React.Component {
     } 
   };
 
-  // Needs fine-tuning. Err keeps being passed back, need to clarify logic. Also has the password in the backend.
   createAccount = () => {
     const input = this.props;
     const newUser = {
