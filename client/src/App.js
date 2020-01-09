@@ -11,7 +11,6 @@ import Repairs from "../src/components/pages/Repairs";
 import FindCar from "../src/components/pages/FindCar";
 import TireRotation from "../src/components/pages/TireRotation";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Protected from "./components/pages/Protected";
 import PrivateRoute from "./components/PrivateRoute";
 import { Provider } from "react-redux";
 import store from "../src/redux/store";
@@ -67,7 +66,6 @@ class App extends React.Component {
                 <PrivateRoute path="/findCar" component={FindCar} />
                 <PrivateRoute path="/recalls" component={Recalls} />
                 <PrivateRoute path="/repairs" component={Repairs} />
-                <PrivateRoute path="/protected" component={Protected} />
                 <Route>
                   <Sorry />
                 </Route>

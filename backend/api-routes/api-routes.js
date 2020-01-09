@@ -30,9 +30,7 @@ module.exports = function(app) {
          });
       }
     }).catch( err => {
-      res.sendStatus(401).json({
-        message: err
-      })
+      res.sendStatus(401)
     })
   });
 
