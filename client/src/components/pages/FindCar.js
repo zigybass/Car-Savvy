@@ -32,9 +32,9 @@ class FindCar extends React.Component {
   render() {
 
     const mapMake = 
-    carMake.map( (make, i) => {
+    carMake.sort().map( (make, i) => {
       return (
-        <option value={i}>{make}</option>
+        <option key={i} >{make}</option>
       )
     } );
 
@@ -75,7 +75,6 @@ class FindCar extends React.Component {
               Make
             </option>
             {mapMake}
-            <option value="1">Ford</option>
           </Select>
           <Select
           id="selectOptions"
