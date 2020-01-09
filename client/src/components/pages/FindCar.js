@@ -1,40 +1,35 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import store from "../../redux/store";
-import { 
-  HEADER_MOVE,
-  CLEAR_TEXT
-} from "../../redux/reducers/types";
+import { HEADER_MOVE, CLEAR_TEXT } from "../../redux/reducers/types";
 import { connect } from "react-redux";
+import { Select } from "react-materialize";
 
 // Need to design where FindCar btn goes. Seems the ternary operator is messing with styles?
 
 class FindCar extends React.Component {
-
   componentDidMount() {
-      console.log(this.props);
+    console.log(this.props);
     store.dispatch({
-        type: HEADER_MOVE,
-        action: true
-      })
+      type: HEADER_MOVE,
+      action: true
+    });
   }
 
-  onSubmit = e => {
-  };
+  onSubmit = e => {};
 
   goBack = e => {
-    console.log(this.props)
+    console.log(this.props);
     store.dispatch({
       type: CLEAR_TEXT
-    })
+    });
     store.dispatch({
       type: HEADER_MOVE,
       action: false
-    })
+    });
   };
 
   render() {
-
     return (
       <div className="container">
         <Link to="/" id="accountArrow" onClick={this.goBack}>
@@ -44,19 +39,18 @@ class FindCar extends React.Component {
         </Link>
         <div className="createAccountCont">
           <h4>Find Your Car</h4>
-          <form>
-          </form>
+          <Select></Select>
         </div>
       </div>
     );
   }
-};
+}
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { input } = state;
   return {
     mileage: input.mileage
-    }
-}
+  };
+};
 
 export default withRouter(connect(mapStateToProps)(FindCar));
