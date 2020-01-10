@@ -5,15 +5,18 @@ import { HEADER_MOVE, CLEAR_TEXT } from "../../redux/reducers/types";
 import { connect } from "react-redux";
 import { Select } from "react-materialize";
 import carMake from "../../utilities/carList";
+import auth from "../../utilities/auth";
 
 // Need to design where FindCar btn goes. Seems the ternary operator is messing with styles?
 
 class FindCar extends React.Component {
+
   componentDidMount() {
     store.dispatch({
       type: HEADER_MOVE,
       action: true
     });
+    console.log(auth.isAuth)
   }
 
   onSubmit = e => {};
@@ -102,9 +105,7 @@ class FindCar extends React.Component {
             <option disabled value="">
               Model
             </option>
-            <option value="1">Ford</option>
-            <option value="2">Ferrari</option>
-            <option value="3">Lotus</option>
+            <option value="1">Models will go here</option>
           </Select>
         </div>
       </div>

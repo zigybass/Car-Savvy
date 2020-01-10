@@ -2,34 +2,17 @@
 import React from "react";
 import BubbleLink from "../BubbleLink";
 import store from "../../redux/store";
-import { HEADER_MOVE, USER_LOGGED_IN } from "../../redux/reducers/types";
+import { HEADER_MOVE } from "../../redux/reducers/types";
 import { connect } from "react-redux";
-import axios from "axios";
-import requests from "../../utilities/requests";
+import auth from "../../utilities/auth";
+// import axios from "axios";
+// import requests from "../../utilities/requests";
 
 class Menu extends React.Component {
 
   componentDidMount () {
 
-    const token = requests.checkToken();
-    if (token) {
-      axios.get("/api/verify", {
-        headers: {
-          authorization: "Bearer " + token
-        }
-      }).then( (response) => {
-        store.dispatch({
-          type: USER_LOGGED_IN,
-          action: true
-        })
-      }).catch(err => {
-        if (err) {
-          console.log(err);
-          requests.logout();
-        }
-      })
-    };
-
+    console.log(auth.isAuth);
     store.dispatch({
       type: HEADER_MOVE,
       action: false

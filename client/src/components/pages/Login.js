@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { USER_TEXT, PASS_TEXT, HEADER_MOVE, CLEAR_TEXT, USER_FIRSTNAME, USER_LOGGED_IN } from "../../redux/reducers/types";
 import "../../utilities/requests";
 import requests from "../../utilities/requests";
+import auth from "../../utilities/auth";
 
 class Login extends React.Component {
 
@@ -60,7 +61,8 @@ class Login extends React.Component {
 
   // Needs to keep track of User ID in URL and add JWT to session.
   logInUser (user) {
-    console.log(user)
+    auth.forceAuth();
+    console.log(user);
     store.dispatch({
       type: USER_FIRSTNAME,
       text: user.firstName
@@ -68,9 +70,9 @@ class Login extends React.Component {
     store.dispatch({
       type: USER_LOGGED_IN,
       action: true
-    })
+    });
     this.props.history.push("/menu");
-  }
+  };
 
   goBack = e => {
     store.dispatch({

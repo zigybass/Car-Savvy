@@ -16,36 +16,24 @@ import PrivateRoute from "./components/PrivateRoute";
 import { Provider } from "react-redux";
 import store from "../src/redux/store";
 import "../src/components/css/style.css";
+import auth from "./utilities/auth";
 import requests from "./utilities/requests";
-import axios from "axios";
 import { USER_LOGGED_IN } from "./redux/reducers/types";
+// import axios from "axios";
 
 class App extends React.Component {
 
   componentDidMount () {
-    const token = requests.checkToken();
-    if (token) {
-      axios.get("/api/verify", {
-        headers: {
-          authorization: "Bearer " + token
-        }
-      }).then( (response) => {
-        console.log(response)
-        store.dispatch({
-          type: USER_LOGGED_IN,
-          action: true
-        })
-      }).catch( err => {
-        if (err) {
-          requests.logout();
-          console.log(err)
-        }
 
+    console.log(requests.checkToken());
+    if (requests.checkToken()) {
+      store.dispatch({
+        type: USER_LOGGED_IN,
+        action: true
       })
-    } else {
-      console.log("log back in I guess?")
-    }
-  }
+    };
+    console.log(auth.isAuth);
+  };
 
   render() {
     

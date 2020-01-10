@@ -14,6 +14,7 @@ import {
   // USER_LOGGED_IN
 } from "../../redux/reducers/types";
 import requests from "../../utilities/requests";
+import auth from "../../utilities/auth";
 
 class CreateAccount extends React.Component {
 
@@ -109,7 +110,8 @@ class CreateAccount extends React.Component {
       store.dispatch({
         type: USER_LOGGED_IN,
         action: true
-      })
+      });
+      auth.forceAuth();
       this.props.history.push("/menu");
     }
 
