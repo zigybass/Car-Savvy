@@ -1,3 +1,4 @@
+
 import React from "react";
 import BubbleLink from "../BubbleLink";
 import store from "../../redux/store";
@@ -21,6 +22,11 @@ class Menu extends React.Component {
           type: USER_LOGGED_IN,
           action: true
         })
+      }).catch(err => {
+        if (err) {
+          console.log(err);
+          requests.logout();
+        }
       })
     };
 

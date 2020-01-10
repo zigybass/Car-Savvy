@@ -121,7 +121,7 @@ class Login extends React.Component {
               <label htmlFor="password">Password</label>
             </div>
           </div>
-          <Link>
+          
             <button
               className="btn waves-effect yellow darken-1 black-text waves-dark"
               style={{ marginLeft: ".8rem" }}
@@ -131,7 +131,7 @@ class Login extends React.Component {
             >
               Login
             </button>
-          </Link>
+          
         </div>
       </div>
     );

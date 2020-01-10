@@ -1,3 +1,4 @@
+
 import React from "react";
 import Header from "../src/components/Header";
 import Title from "../src/components/pages/Title";
@@ -29,10 +30,17 @@ class App extends React.Component {
           authorization: "Bearer " + token
         }
       }).then( (response) => {
+        console.log(response)
         store.dispatch({
           type: USER_LOGGED_IN,
           action: true
         })
+      }).catch( err => {
+        if (err) {
+          requests.logout();
+          console.log(err)
+        }
+
       })
     } else {
       console.log("log back in I guess?")

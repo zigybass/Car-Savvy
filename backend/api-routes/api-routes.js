@@ -25,7 +25,7 @@ module.exports = function(app) {
         const accessToken = jwt.sign(
           user, 
           process.env.ACCESS_TOKEN_SECRET,
-          { expiresIn: 1200 }
+          { expiresIn: 5 }
           );
         res.json({ 
           accessToken: accessToken,
@@ -60,7 +60,7 @@ module.exports = function(app) {
             const accessToken = jwt.sign(
               user, 
               process.env.ACCESS_TOKEN_SECRET,
-              { expiresIn: 1200}
+              { expiresIn: 5}
               );
             res.json({ 
               accessToken: accessToken,
@@ -81,7 +81,7 @@ module.exports = function(app) {
 
   app.get("/api/verify", authMiddle, (req, res) => {
     res.json({
-      message: "Verify backend"
+      message: "verify backend"
     })
   })
 };
