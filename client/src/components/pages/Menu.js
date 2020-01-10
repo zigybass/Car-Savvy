@@ -12,6 +12,8 @@ class Menu extends React.Component {
 
   componentDidMount () {
 
+    auth.checkAuth();
+
     console.log(auth.isAuth);
     store.dispatch({
       type: HEADER_MOVE,
