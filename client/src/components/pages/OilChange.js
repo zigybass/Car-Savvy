@@ -7,10 +7,6 @@ class OilChange extends React.Component {
 
   componentDidMount () {
 
-    console.log(auth.isAuth);
-
-    auth.checkAuth();
-
     store.dispatch({
       type: HEADER_MOVE,
       action: false

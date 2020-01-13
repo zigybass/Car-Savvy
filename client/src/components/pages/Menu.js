@@ -2,9 +2,10 @@
 import React from "react";
 import BubbleLink from "../BubbleLink";
 import store from "../../redux/store";
-import { HEADER_MOVE } from "../../redux/reducers/types";
+import { HEADER_MOVE, USER_LOGGED_IN } from "../../redux/reducers/types";
 import { connect } from "react-redux";
 import auth from "../../utilities/auth";
+import requests from "../../utilities/requests";
 // import axios from "axios";
 // import requests from "../../utilities/requests";
 
@@ -12,9 +13,15 @@ class Menu extends React.Component {
 
   componentDidMount () {
 
-    auth.checkAuth();
+    if (requests.checkToken()) {
+      auth.forceAuth();
+      store.dispatch({
+        type: USER_LOGGED_IN,
+        action: true
+      });
+    };
 
-    console.log(auth.isAuth);
+    console.log("Menu: " + auth.isAuth);
     store.dispatch({
       type: HEADER_MOVE,
       action: false

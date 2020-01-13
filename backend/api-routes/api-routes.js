@@ -25,7 +25,7 @@ module.exports = function(app) {
         const accessToken = jwt.sign(
           user, 
           process.env.ACCESS_TOKEN_SECRET,
-          { expiresIn: 10 }
+          { expiresIn: 1200 }
           );
         res.json({ 
           accessToken: accessToken,
@@ -60,7 +60,7 @@ module.exports = function(app) {
             const accessToken = jwt.sign(
               user, 
               process.env.ACCESS_TOKEN_SECRET,
-              { expiresIn: 10 }
+              { expiresIn: 1200 }
               );
             res.json({ 
               accessToken: accessToken,
