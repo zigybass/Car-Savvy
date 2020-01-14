@@ -22,7 +22,6 @@ class Menu extends React.Component {
       });
     };
 
-    console.log("Menu: " + auth.isAuth);
     store.dispatch({
       type: HEADER_MOVE,
       action: false
