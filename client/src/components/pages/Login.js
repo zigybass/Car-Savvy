@@ -33,6 +33,8 @@ class Login extends React.Component {
     }
   };
 
+
+  // Remember to set function priority. Example: localStorage set token comes before moving window to Menu. That way data is ready on load
   onSubmit = e => {
     const input = this.props;
     const user = {
@@ -49,8 +51,8 @@ class Login extends React.Component {
         console.log(res);
         const token = res.data.accessToken;
         const resUser = { firstName: res.data.name };
-        this.logInUser(resUser);
         localStorage.setItem("token", token);
+        this.logInUser(resUser);
       })
       .catch(err => {
         console.log(err);

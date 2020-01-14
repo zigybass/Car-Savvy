@@ -9,7 +9,7 @@ import auth from "../utilities/auth";
 
 const PrivateRoute = ({component: Component, ...rest}) => (
     <Route {...rest} render={(props) => (
-        (auth.isAuth) ? 
+        (auth.checkAuth()) ? 
         <Component {...props} /> :
         <Redirect to="/login"/>
     )} />

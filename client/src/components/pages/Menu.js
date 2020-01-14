@@ -7,11 +7,12 @@ import { connect } from "react-redux";
 import auth from "../../utilities/auth";
 import requests from "../../utilities/requests";
 // import axios from "axios";
-// import requests from "../../utilities/requests";
 
 class Menu extends React.Component {
 
   componentDidMount () {
+
+    auth.verifyAuth();
 
     if (requests.checkToken()) {
       auth.forceAuth();

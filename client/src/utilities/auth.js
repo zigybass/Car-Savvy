@@ -11,27 +11,22 @@ const auth = {
         this.isAuth = true;
     },
 
-    checkAuth () {
+    verifyAuth: () => {
         console.log(requests.checkToken());
-        if (requests.checkToken()) {
-            axios.get("/api/verify", {
-              headers: {
+        axios.get("/api/verify", {
+            headers: {
                 authorization: "Bearer " + requests.checkToken()
-              }
-            }).then( (response) => {
-              console.log(response);
-              this.isAuth = true;
-            }).catch( err => {
-              if (err) {
-                  console.log("Line 26: " + err);
-                    this.isAuth = false;
-              }
-            })
-          } else {
-            console.log("JWT token not verified");
-             this.isAuth = false;
-          }
-    }
+            }
+        }).then( response => {
+            console.log(response)
+        }).catch( err => {
+            console.log(err);
+        })
+    },
+
+    // checkAuth: () => {
+    //     this.verifyAuth;
+    // }
 };
 
 export default auth;
