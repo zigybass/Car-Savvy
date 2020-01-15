@@ -82,4 +82,9 @@ module.exports = function(app) {
   app.get("/api/verify", authMiddle, (req, res) => {
     res.json(req.user);
   })
+
+  app.post("/api/models", (req, res) => {
+    console.log(req.body)
+  } )
+
 };

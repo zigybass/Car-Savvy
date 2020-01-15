@@ -1,12 +1,13 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import store from "../../redux/store";
-import { HEADER_MOVE, USER_LOGGED_IN } from "../../redux/reducers/types";
+import { HEADER_MOVE, USER_LOGGED_IN, YEAR_INPUT } from "../../redux/reducers/types";
 import { connect } from "react-redux";
 import { Select } from "react-materialize";
 import carMake from "../../utilities/carList";
 import auth from "../../utilities/auth";
 import requests from "../../utilities/requests";
+import axios from "axios";
 
 // Need to design where FindCar btn goes. Seems the ternary operator is messing with styles?
 
@@ -29,7 +30,19 @@ class FindCar extends React.Component {
     console.log(auth.isAuth)
   }
 
-  onSubmit = e => {};
+  onChange = e => {
+    const year = e.target.value;
+    console.log(year)
+    store.dispatch({
+      type: YEAR_INPUT,
+      text: year
+    })
+  }
+
+  findModels = e => {
+
+    axios.post("/api/models", {})
+  };
 
   goBack = e => {
     console.log(this.props);
@@ -72,7 +85,7 @@ class FindCar extends React.Component {
           <h4>Find Your Car</h4>
 
           <Select
-          id="selectOptions"
+          id="makeList"
             onChange={function noRefCheck() {}}
             options={{
               classes: "",
@@ -100,7 +113,7 @@ class FindCar extends React.Component {
             {mapMake}
           </Select>
           <Select
-          id="selectOptions"
+          id="modelList"
             onChange={function noRefCheck() {}}
             options={{
               classes: "",
@@ -128,8 +141,8 @@ class FindCar extends React.Component {
             <option value="1">Models will go here</option>
           </Select>
           <Select
-          id="selectOptions"
-            onChange={function noRefCheck() {}}
+          id="yearList"
+            onChange={this.onChange}
             options={{
               classes: "",
               dropdownOptions: {
@@ -148,7 +161,7 @@ class FindCar extends React.Component {
                 outDuration: 250
               }
             }}
-            value=""
+            value={this.props.year}
           >
             <option disabled value="">
               Year
@@ -164,7 +177,10 @@ class FindCar extends React.Component {
 const mapStateToProps = state => {
   const { input } = state;
   return {
-    mileage: input.mileage
+    mileage: input.mileage,
+    make: input.make,
+    model: input.model,
+    year: input.year
   };
 };
 

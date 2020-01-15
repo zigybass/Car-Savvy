@@ -15,3 +15,6 @@ export const HIDE_BTN = "HIDE_BTN";
 // User actions
 export const USER_LOGGED_IN = "USER_LOGGED_IN";
 export const USER_FIRSTNAME = "USER_FIRSTNAME";
+
+// FindCar Inputs
+export const YEAR_INPUT = "YEAR_INPUT";

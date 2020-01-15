@@ -4,7 +4,8 @@ import {
   PASS_TEXT, 
   FIRST_TEXT, 
   PASS_CONFIRM,
-  CLEAR_TEXT
+  CLEAR_TEXT,
+  YEAR_INPUT
    } from "./types";
 
 const initialInputState = {
@@ -26,6 +27,8 @@ function inputReducer(state = initialInputState, action) {
           return {...state, firstName: action.text}
       case PASS_CONFIRM:
         return {...state, passConfirm: action.text}
+      case YEAR_INPUT:
+        return {...state, yearInput: action.text}
       case CLEAR_TEXT:
         return {
           ...state, 
