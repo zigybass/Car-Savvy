@@ -23,20 +23,17 @@ import { USER_LOGGED_IN } from "./redux/reducers/types";
 
 class App extends React.Component {
 
-  componentDidMount () {
-
-    if (auth.verifyAuth()) {
+  async componentDidMount () {
+    console.log("Durrrr I'm in DAH APPPP. DERPADOOOOOO");
+    const isLoggedIn = await auth.verifyAuth();
+    if (isLoggedIn) {
       store.dispatch({
         type: USER_LOGGED_IN,
         action: true
       })
-    } else if (!auth.verifyAuth()) {
-      store.dispatch({
-        type: USER_LOGGED_IN,
-        action: false
-      })
     }
 
+    console.log('Is Logged In: ', isLoggedIn);
   };
 
   render() {

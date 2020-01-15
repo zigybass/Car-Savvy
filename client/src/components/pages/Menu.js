@@ -12,16 +12,6 @@ class Menu extends React.Component {
 
   componentDidMount () {
 
-    auth.verifyAuth();
-
-    if (requests.checkToken()) {
-      auth.forceAuth();
-      store.dispatch({
-        type: USER_LOGGED_IN,
-        action: true
-      });
-    };
-
     store.dispatch({
       type: HEADER_MOVE,
       action: false

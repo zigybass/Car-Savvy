@@ -11,20 +11,21 @@ const auth = {
         this.isAuth = true;
     },
 
-    verifyAuth: function()  {
-        console.log(requests.checkToken());
-        axios.get("/api/verify", {
+    verifyAuth: async function()  {
+        return axios.get("/api/verify", {
             headers: {
                 authorization: "Bearer " + requests.checkToken()
             }
-        }).then( response => {
-            console.log(response);
-            this.isAuth = true;
+        }).then(() => {
+            console.log("Axios finished");
+            return true;
+            // return this.isAuth = true;
         }).catch( err => {
             console.log(err);
-            this.isAuth = false;
-        })
-        return this.isAuth;
+            return false;
+            // return this.isAuth = false;
+        });
+        // return this.isAuth;
     },
 };
 
