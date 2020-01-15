@@ -1,17 +1,27 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import store from "../../redux/store";
-import { HEADER_MOVE, CLEAR_TEXT } from "../../redux/reducers/types";
+import { HEADER_MOVE, CLEAR_TEXT, USER_LOGGED_IN } from "../../redux/reducers/types";
 import { connect } from "react-redux";
 import { Select } from "react-materialize";
 import carMake from "../../utilities/carList";
 import auth from "../../utilities/auth";
+import requests from "../../utilities/requests";
 
 // Need to design where FindCar btn goes. Seems the ternary operator is messing with styles?
 
 class FindCar extends React.Component {
 
   componentDidMount() {
+
+    if (requests.checkToken()) {
+      auth.forceAuth();
+      store.dispatch({
+        type: USER_LOGGED_IN,
+        action: true
+      });
+    };
+
     store.dispatch({
       type: HEADER_MOVE,
       action: true
@@ -24,9 +34,6 @@ class FindCar extends React.Component {
   goBack = e => {
     console.log(this.props);
     store.dispatch({
-      type: CLEAR_TEXT
-    });
-    store.dispatch({
       type: HEADER_MOVE,
       action: false
     });
@@ -34,16 +41,29 @@ class FindCar extends React.Component {
 
   render() {
 
+    // Adds dates to table, yearList maps it to 3rd Select
+    const table = [];
+    for ( let i = 2020; i >= 1995; i-- ) {
+      table.push(i);
+    };
+
+    const yearList = 
+    table.map( i => {
+      return (
+        <option key={i}>{i}</option>
+      )
+    })
+
     const mapMake = 
     carMake.sort().map( (make, i) => {
       return (
-        <option key={i} >{make}</option>
+        <option key={i}>{make}</option>
       )
     } );
 
     return (
       <div className="container">
-        <Link to="/" id="accountArrow" onClick={this.goBack}>
+        <Link to="/menu" id="accountArrow" onClick={this.goBack}>
           <i className="material-icons" id="backArrow">
             arrow_back
           </i>
@@ -63,7 +83,7 @@ class FindCar extends React.Component {
                 constrainWidth: true,
                 container: null,
                 coverTrigger: true,
-                hover: false,
+                hover: true,
                 inDuration: 150,
                 onCloseEnd: null,
                 onCloseStart: null,
@@ -91,7 +111,7 @@ class FindCar extends React.Component {
                 constrainWidth: true,
                 container: null,
                 coverTrigger: true,
-                hover: false,
+                hover: true,
                 inDuration: 150,
                 onCloseEnd: null,
                 onCloseStart: null,
@@ -106,6 +126,34 @@ class FindCar extends React.Component {
               Model
             </option>
             <option value="1">Models will go here</option>
+          </Select>
+          <Select
+          id="selectOptions"
+            onChange={function noRefCheck() {}}
+            options={{
+              classes: "",
+              dropdownOptions: {
+                alignment: "left",
+                autoTrigger: true,
+                closeOnClick: true,
+                constrainWidth: true,
+                container: null,
+                coverTrigger: true,
+                hover: true,
+                inDuration: 150,
+                onCloseEnd: null,
+                onCloseStart: null,
+                onOpenEnd: null,
+                onOpenStart: null,
+                outDuration: 250
+              }
+            }}
+            value=""
+          >
+            <option disabled value="">
+              Year
+            </option>
+            {yearList}
           </Select>
         </div>
       </div>

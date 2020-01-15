@@ -26,10 +26,6 @@ const auth = {
         })
         return this.isAuth;
     },
-
-    // checkAuth: () => {
-    //     this.verifyAuth;
-    // }
 };
 
 export default auth;

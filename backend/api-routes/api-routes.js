@@ -6,7 +6,7 @@ module.exports = function(app) {
 
   app.post("/api/login", function(req, res) {
     console.log("Login attempt: " + JSON.stringify(req.body));
-    const { username, password, firstName } = req.body;
+    const { username, password } = req.body;
     User.findOne({ username: username }, (err, res) => {
       if (err) {
         throw err;
