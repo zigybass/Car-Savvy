@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import store from "../../redux/store";
-import { HEADER_MOVE, CLEAR_TEXT, USER_LOGGED_IN } from "../../redux/reducers/types";
+import { HEADER_MOVE, USER_LOGGED_IN } from "../../redux/reducers/types";
 import { connect } from "react-redux";
 import { Select } from "react-materialize";
 import carMake from "../../utilities/carList";

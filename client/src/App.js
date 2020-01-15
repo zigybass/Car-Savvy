@@ -25,15 +25,17 @@ class App extends React.Component {
 
   componentDidMount () {
 
-    if (requests.checkToken()) {
-      auth.forceAuth();
+    if (auth.verifyAuth()) {
       store.dispatch({
         type: USER_LOGGED_IN,
         action: true
-      });
-    };
-
-    console.log("App: " + auth.isAuth);
+      })
+    } else if (!auth.verifyAuth()) {
+      store.dispatch({
+        type: USER_LOGGED_IN,
+        action: false
+      })
+    }
 
   };
 
