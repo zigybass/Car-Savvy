@@ -2,7 +2,7 @@
 import React from "react";
 import BubbleLink from "../BubbleLink";
 import store from "../../redux/store";
-import { HEADER_MOVE, USER_LOGGED_IN } from "../../redux/reducers/types";
+import { HEADER_MOVE } from "../../redux/reducers/types";
 import { connect } from "react-redux";
 // import auth from "../../utilities/auth";
 // import requests from "../../utilities/requests";

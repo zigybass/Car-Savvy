@@ -11,7 +11,6 @@ import {
   CLEAR_TEXT,
   USER_FIRSTNAME,
   USER_LOGGED_IN,
-  // USER_LOGGED_IN
 } from "../../redux/reducers/types";
 import requests from "../../utilities/requests";
 import auth from "../../utilities/auth";
@@ -54,6 +53,7 @@ class CreateAccount extends React.Component {
   };
 
   onSubmit = e => {
+    e.preventDefault();
     const input = this.props;
     console.log(input);
     const pass = input.password;
@@ -186,7 +186,7 @@ class CreateAccount extends React.Component {
               <label htmlFor="first_name">Re-enter Password</label>
             </div>
           </div>
-          <Link>
+          
             <button
               className="btn waves-effect yellow darken-1 black-text waves-dark"
               type="submit"
@@ -196,7 +196,7 @@ class CreateAccount extends React.Component {
             >
               Submit
             </button>
-          </Link>
+          
         </form>
       </div>
     );

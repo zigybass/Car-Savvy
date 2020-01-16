@@ -40,7 +40,7 @@ class Header extends React.Component {
     //   userBtns = headerOpen ? "none" : "unset";
     // }
     let slideClass = headerOpen ? "headerNavSlide" : "headerNav";
-    let findCarBtn = loggedIn ? "initial" : "none";
+    // let findCarBtn = loggedIn ? "initial" : "none";
 
     return (
       <div className={slideClass}>
@@ -54,26 +54,16 @@ class Header extends React.Component {
             null
           )}
 
-          {!loggedIn ? (
             <Link
-              to="/login"
-              onClick={this.slideOut}
+              to={loggedIn ? "/" : "/login"}
+              onClick={loggedIn ? this.logout : this.slideOut}
               style={{ display: userBtns }}
             >
-              <Button id="loginBtn" name="Login" />
-            </Link>
-          ) : (
-            <Link 
-            to="/"
-            onClick={this.logout}
-            style={{ display: userBtns }}
-            >
               <Button 
-              id="logoutBtn" 
-              name="Logout"
-               />
+              id={loggedIn ? "logoutBtn" : "loginBtn"}
+              name={loggedIn ? "Logout" : "Login"} />
             </Link>
-          )}
+
           {!loggedIn ? <Link
             to="/createAccount"
             onClick={this.slideOut}
