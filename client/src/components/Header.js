@@ -28,12 +28,17 @@ class Header extends React.Component {
     const { headerOpen, loggedIn, firstName } = this.props;
 
     let userBtns = "";
-    // Styles SideNav and Buttons
-    if (loggedIn) {
-      userBtns = "none";
+    if (headerOpen) {
+      userBtns = "none"
     } else {
-      userBtns = headerOpen ? "none" : "unset";
-    }
+      userBtns = "unset"
+    };
+    // Styles SideNav and Buttons
+    // if (loggedIn) {
+    //   userBtns = "none";
+    // } else {
+    //   userBtns = headerOpen ? "none" : "unset";
+    // }
     let slideClass = headerOpen ? "headerNavSlide" : "headerNav";
     let findCarBtn = loggedIn ? "initial" : "none";
 
@@ -42,7 +47,7 @@ class Header extends React.Component {
         <div className="container" id="navCont">
 
           {loggedIn && !headerOpen ? (
-            <div id="userGreeting" style={{ display: findCarBtn }}>
+            <div id="userGreeting">
             Welcome {firstName}!
           </div>
           ) : (
@@ -60,11 +65,13 @@ class Header extends React.Component {
           ) : (
             <Link 
             to="/"
-            onClick={this.logout}>
+            onClick={this.logout}
+            style={{ display: userBtns }}
+            >
               <Button 
               id="logoutBtn" 
               name="Logout"
-              style={{ display: userBtns }} />
+               />
             </Link>
           )}
           {!loggedIn ? <Link
@@ -74,7 +81,9 @@ class Header extends React.Component {
           >
             <Button id="createAccBtn" name="Create Account" />
           </Link> : null};
-          {!loggedIn ? null : <Link to="/findCar">
+          {!loggedIn ? null : <Link 
+          to="/findCar"
+          style={{ display: userBtns }}>
             <Button name="Find Car" />
           </Link>}
         </div>
