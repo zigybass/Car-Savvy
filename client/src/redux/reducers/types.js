@@ -18,3 +18,5 @@ export const USER_FIRSTNAME = "USER_FIRSTNAME";
 
 // FindCar Inputs
 export const YEAR_INPUT = "YEAR_INPUT";
+export const MODEL_INPUT = "MODEL_INPUT";
+export const MAKE_INPUT = "MAKE_INPUT";

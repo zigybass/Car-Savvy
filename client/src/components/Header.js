@@ -40,9 +40,15 @@ class Header extends React.Component {
     return (
       <div className={slideClass}>
         <div className="container" id="navCont">
-          <div id="userGreeting" style={{ display: findCarBtn }}>
+
+          {loggedIn && !headerOpen ? (
+            <div id="userGreeting" style={{ display: findCarBtn }}>
             Welcome {firstName}!
           </div>
+          ) : (
+            null
+          )}
+
           {!loggedIn ? (
             <Link
               to="/login"
@@ -60,7 +66,7 @@ class Header extends React.Component {
               name="Logout"
               style={{ display: userBtns }} />
             </Link>
-          )};
+          )}
           {!loggedIn ? <Link
             to="/createAccount"
             onClick={this.slideOut}
