@@ -84,7 +84,7 @@ module.exports = function(app) {
   })
 
   app.post("/api/models", (req, res) => {
-    console.log(req.body)
+    console.log(req.body);
   } )
 
 };

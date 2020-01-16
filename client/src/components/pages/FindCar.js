@@ -32,7 +32,7 @@ class FindCar extends React.Component {
 
   onChange = e => {
     const year = e.target.value;
-    console.log(year)
+    console.log(year);
     store.dispatch({
       type: YEAR_INPUT,
       text: year

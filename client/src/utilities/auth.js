@@ -11,7 +11,7 @@ const auth = {
         this.isAuth = true;
     },
 
-    verifyAuth: async function()  {
+    apiCall () {
         return axios.get("/api/verify", {
             headers: {
                 authorization: "Bearer " + requests.checkToken()
@@ -25,8 +25,18 @@ const auth = {
             return false;
             // return this.isAuth = false;
         });
-        // return this.isAuth;
     },
+
+    async verifyAuth () {
+        const authToken = await this.apiCall();
+        try {
+            await authToken;
+        } catch (err) {
+            console.log(err);
+        };
+        console.log(authToken);
+        return authToken;
+    }
 };
 
 export default auth;

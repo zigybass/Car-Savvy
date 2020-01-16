@@ -4,8 +4,8 @@ import BubbleLink from "../BubbleLink";
 import store from "../../redux/store";
 import { HEADER_MOVE, USER_LOGGED_IN } from "../../redux/reducers/types";
 import { connect } from "react-redux";
-import auth from "../../utilities/auth";
-import requests from "../../utilities/requests";
+// import auth from "../../utilities/auth";
+// import requests from "../../utilities/requests";
 // import axios from "axios";
 
 class Menu extends React.Component {

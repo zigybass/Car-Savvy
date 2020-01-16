@@ -17,19 +17,23 @@ import { Provider } from "react-redux";
 import store from "../src/redux/store";
 import "../src/components/css/style.css";
 import auth from "./utilities/auth";
-import requests from "./utilities/requests";
+// import requests from "./utilities/requests";
 import { USER_LOGGED_IN } from "./redux/reducers/types";
 // import axios from "axios";
 
 class App extends React.Component {
 
   async componentDidMount () {
-    console.log("Durrrr I'm in DAH APPPP. DERPADOOOOOO");
     const isLoggedIn = await auth.verifyAuth();
     if (isLoggedIn) {
       store.dispatch({
         type: USER_LOGGED_IN,
         action: true
+      })
+    } else if (!isLoggedIn) {
+      store.dispatch({
+        type: USER_LOGGED_IN,
+        action: false
       })
     }
 
