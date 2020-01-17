@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const authMiddle = require("../jwtAuth/authMiddle");
+const vehicleAPI = require("../vehicleAPI/vehicleAPI");
 
 module.exports = function(app) {
 

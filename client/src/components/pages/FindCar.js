@@ -3,11 +3,15 @@ import { Link, withRouter } from "react-router-dom";
 import store from "../../redux/store";
 import { HEADER_MOVE, USER_LOGGED_IN, YEAR_INPUT } from "../../redux/reducers/types";
 import { connect } from "react-redux";
-import { Select } from "react-materialize";
 import carMake from "../../utilities/carList";
 import auth from "../../utilities/auth";
 import requests from "../../utilities/requests";
 import axios from "axios";
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputLabel from '@material-ui/core/InputLabel';
+import { makeStyles } from '@material-ui/core/styles';
 
 // Need to design where FindCar btn goes. Seems the ternary operator is messing with styles?
 
@@ -54,9 +58,19 @@ class FindCar extends React.Component {
 
   render() {
 
+    const useStyles = makeStyles({
+      root: {
+        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        border: 0,
+        borderRadius: 3,
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        color: 'white',
+      },
+    });
+
     // Adds dates to table, yearList maps it to 3rd Select
     const table = [];
-    for ( let i = 2020; i >= 1995; i-- ) {
+    for ( let i = 2020; i >= 1990; i-- ) {
       table.push(i);
     };
 
@@ -70,7 +84,7 @@ class FindCar extends React.Component {
     const mapMake = 
     carMake.sort().map( (make, i) => {
       return (
-        <option key={i}>{make}</option>
+        <MenuItem key={i}>{make}</MenuItem>
       )
     } );
 
@@ -84,90 +98,15 @@ class FindCar extends React.Component {
         <div className="createAccountCont">
           <h4>Find Your Car</h4>
 
-          <Select
+          <FormControl >
+        <InputLabel id="demo-simple-select-label">Make</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
           id="makeList"
-            onChange={function noRefCheck() {}}
-            options={{
-              classes: "",
-              dropdownOptions: {
-                alignment: "left",
-                autoTrigger: true,
-                closeOnClick: true,
-                constrainWidth: true,
-                container: null,
-                coverTrigger: true,
-                hover: true,
-                inDuration: 150,
-                onCloseEnd: null,
-                onCloseStart: null,
-                onOpenEnd: null,
-                onOpenStart: null,
-                outDuration: 250
-              }
-            }}
-            value=""
-          >
-            <option disabled value="">
-              Make
-            </option>
-            {mapMake}
-          </Select>
-          <Select
-          id="modelList"
-            onChange={function noRefCheck() {}}
-            options={{
-              classes: "",
-              dropdownOptions: {
-                alignment: "left",
-                autoTrigger: true,
-                closeOnClick: true,
-                constrainWidth: true,
-                container: null,
-                coverTrigger: true,
-                hover: true,
-                inDuration: 150,
-                onCloseEnd: null,
-                onCloseStart: null,
-                onOpenEnd: null,
-                onOpenStart: null,
-                outDuration: 250
-              }
-            }}
-            value=""
-          >
-            <option disabled value="">
-              Model
-            </option>
-            <option value="1">Models will go here</option>
-          </Select>
-          <Select
-          id="yearList"
-            onChange={this.onChange}
-            options={{
-              classes: "",
-              dropdownOptions: {
-                alignment: "left",
-                autoTrigger: true,
-                closeOnClick: true,
-                constrainWidth: true,
-                container: null,
-                coverTrigger: true,
-                hover: true,
-                inDuration: 150,
-                onCloseEnd: null,
-                onCloseStart: null,
-                onOpenEnd: null,
-                onOpenStart: null,
-                outDuration: 250
-              }
-            }}
-            value={this.props.year}
-          >
-            <option disabled value="">
-              Year
-            </option>
-            {yearList}
-          </Select>
+        >
+          {mapMake}
+        </Select>
+      </FormControl>
         </div>
       </div>
     );

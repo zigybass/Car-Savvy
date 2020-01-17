@@ -34,7 +34,6 @@ const auth = {
         } catch (err) {
             console.log(err);
         };
-        console.log(authToken);
         return authToken;
     }
 };

@@ -65,6 +65,10 @@ body {
   box-shadow: 0 1px 0 0 #000;
 }
 
+.select-wrapper input.select-dropdown {
+  color: white
+}
+
 h5 {
   color: $fontColorWhite;
 }
@@ -176,6 +180,7 @@ h5 {
   color: $fontColorWhite;
   margin-left: 1rem;
 }
+
 
 @keyframes titleSlide {
   from {
