@@ -20,10 +20,11 @@ import auth from "./utilities/auth";
 // import requests from "./utilities/requests";
 import { USER_LOGGED_IN } from "./redux/reducers/types";
 // import axios from "axios";
+import PrivateWrapper from "./components/PrivateWrapper";
 
 class App extends React.Component {
 
-  async componentDidMount () {
+   async componentDidMount () {
     const isLoggedIn = await auth.verifyAuth();
     if (isLoggedIn) {
       store.dispatch({
@@ -67,6 +68,11 @@ class App extends React.Component {
                 <PrivateRoute path="/findCar" component={FindCar} />
                 <PrivateRoute path="/recalls" component={Recalls} />
                 <PrivateRoute path="/repairs" component={Repairs} />
+                <PrivateWrapper path="/test"> 
+                  <div className="container">
+                    <h4>TEST</h4>
+                  </div>
+                </PrivateWrapper>
                 <Route>
                   <Sorry />
                 </Route>

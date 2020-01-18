@@ -11,7 +11,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
-import { makeStyles } from '@material-ui/core/styles';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 // Need to design where FindCar btn goes. Seems the ternary operator is messing with styles?
 
@@ -58,14 +58,18 @@ class FindCar extends React.Component {
 
   render() {
 
-    const useStyles = makeStyles({
-      root: {
-        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-        border: 0,
-        borderRadius: 3,
-        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-        color: 'white',
-      },
+    // const useStyles = makeStyles({
+    //   root: {
+    //     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    //     border: 0,
+    //     borderRadius: 3,
+    //     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    //     color: 'white',
+    //   },
+    // });
+
+    const formTheme = createMuiTheme({
+      color: "white"
     });
 
     // Adds dates to table, yearList maps it to 3rd Select
@@ -74,12 +78,12 @@ class FindCar extends React.Component {
       table.push(i);
     };
 
-    const yearList = 
-    table.map( i => {
-      return (
-        <option key={i}>{i}</option>
-      )
-    })
+    // const yearList = 
+    // table.map( i => {
+    //   return (
+    //     <option key={i}>{i}</option>
+    //   )
+    // })
 
     const mapMake = 
     carMake.sort().map( (make, i) => {
@@ -98,6 +102,7 @@ class FindCar extends React.Component {
         <div className="createAccountCont">
           <h4>Find Your Car</h4>
 
+        <MuiThemeProvider theme={formTheme}>
           <FormControl >
         <InputLabel id="demo-simple-select-label">Make</InputLabel>
         <Select
@@ -107,6 +112,7 @@ class FindCar extends React.Component {
           {mapMake}
         </Select>
       </FormControl>
+      </MuiThemeProvider>
         </div>
       </div>
     );
