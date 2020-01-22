@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, withRouter, Redirect } from "react-router-dom";
 import store from "../../redux/store";
 import { connect } from "react-redux";
 import { USER_TEXT, PASS_TEXT, HEADER_MOVE, CLEAR_TEXT, USER_LOGGED_IN } from "../../redux/reducers/types";
@@ -88,6 +88,13 @@ class Login extends React.Component {
   };
 
   render() {
+
+    if (this.props.verify === true) {
+      return (
+        <Redirect to="/menu" />
+      )
+    }
+
     return (
       // Link cant use preventDefault(), or else wont "redirect"
 
@@ -144,10 +151,11 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const { input } = state;
+  const { input, user } = state;
   return {
     username: input.username,
-    password: input.password
+    password: input.password,
+    verify: user.verify
   };
 };
 

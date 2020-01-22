@@ -15,7 +15,7 @@ function userReducer (state = initialUserState, action) {
         case USER_FIRSTNAME:
             return {...state, firstName: action.text}
         case USER_LOGGED_IN:
-            return {...state, loggedIn: action.action, firstName: action.text}
+            return {...state, loggedIn: action.action, firstName: action.text, verify: action.action}
         case VERIFY_DATA:
             return {...state, verify: action.action}
         default:
