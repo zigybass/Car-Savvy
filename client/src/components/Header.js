@@ -70,7 +70,7 @@ class Header extends React.Component {
             style={{ display: userBtns }}
           >
             <Button id="createAccBtn" name="Create Account" />
-          </Link> : null};
+          </Link> : null}
           {!loggedIn ? null : <Link 
           to="/findCar"
           style={{ display: userBtns }}>

@@ -2,7 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import store from "../../redux/store";
 import { connect } from "react-redux";
-import { USER_TEXT, PASS_TEXT, HEADER_MOVE, CLEAR_TEXT, USER_FIRSTNAME, USER_LOGGED_IN } from "../../redux/reducers/types";
+import { USER_TEXT, PASS_TEXT, HEADER_MOVE, CLEAR_TEXT, USER_LOGGED_IN } from "../../redux/reducers/types";
 import "../../utilities/requests";
 import requests from "../../utilities/requests";
 import auth from "../../utilities/auth";
@@ -65,13 +65,14 @@ class Login extends React.Component {
   logInUser (user) {
     auth.forceAuth();
     console.log(user);
-    store.dispatch({
-      type: USER_FIRSTNAME,
-      text: user.firstName
-    });
+    // store.dispatch({
+    //   type: USER_FIRSTNAME,
+    //   text: user.firstName
+    // });
     store.dispatch({
       type: USER_LOGGED_IN,
-      action: true
+      action: true,
+      text: user.firstName
     });
     this.props.history.push("/menu");
   };

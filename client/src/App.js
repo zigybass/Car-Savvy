@@ -24,8 +24,11 @@ import PrivateWrapper from "./components/PrivateWrapper";
 
 class App extends React.Component {
 
-   async componentDidMount () {
+    async componentDidMount () {
+
+      console.log("before")
     const isLoggedIn = await auth.verifyAuth();
+    console.log("after: " + isLoggedIn)
     if (isLoggedIn) {
       store.dispatch({
         type: USER_LOGGED_IN,
@@ -37,11 +40,12 @@ class App extends React.Component {
         action: false
       })
     }
-
     console.log('Is Logged In: ', isLoggedIn);
   };
 
   render() {
+
+    console.log("render App")
     
     return (
       <Router>
@@ -81,7 +85,7 @@ class App extends React.Component {
           </div>
         </Provider>
       </Router>
-    );
+    )
   }
 }
 
