@@ -44,8 +44,6 @@ class App extends React.Component {
   };
 
   render() {
-
-    console.log("render App")
     
     return (
       <Router>
@@ -71,12 +69,7 @@ class App extends React.Component {
                 <PrivateRoute path="/tireRotation" component={TireRotation} />
                 <PrivateRoute path="/findCar" component={FindCar} />
                 <PrivateRoute path="/recalls" component={Recalls} />
-                <PrivateRoute path="/repairs" component={Repairs} />
-                <PrivateWrapper path="/test"> 
-                  <div className="container">
-                    <h4>TEST</h4>
-                  </div>
-                </PrivateWrapper>
+                <PrivateWrapper path="/repairs" component={Repairs} />
                 <Route>
                   <Sorry />
                 </Route>

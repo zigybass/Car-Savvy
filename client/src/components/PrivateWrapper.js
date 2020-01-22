@@ -7,17 +7,25 @@ import auth from "../utilities/auth";
 
 class PrivateWrapper extends PureComponent {
 
- async componentDidMount() {
+componentDidMount() {
 
-  await auth.verifyAuth();
 
   console.log(this.props);
   
   }
 
    render() {
+     const ver = auth.verifyAuth();
+
+     if (!ver) {
+       console.log("not verified")
+     } else if (!!ver) {
+       console.log("is verified")
+     }
+
     const verify = this.props.verify;    
     console.log(verify);
+
     return (<PrivateRoute data={verify}></PrivateRoute>)
   }
 }
