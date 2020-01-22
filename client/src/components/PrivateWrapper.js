@@ -9,7 +9,6 @@ class PrivateWrapper extends PureComponent {
 
 componentDidMount() {
 
-
   console.log(this.props);
   
   }
@@ -27,6 +26,7 @@ componentDidMount() {
     console.log(verify);
 
     return (<PrivateRoute data={verify}></PrivateRoute>)
+
   }
 }
 

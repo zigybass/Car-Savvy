@@ -44,6 +44,8 @@ class App extends React.Component {
   };
 
   render() {
+
+    auth.verifyAuth();
     
     return (
       <Router>

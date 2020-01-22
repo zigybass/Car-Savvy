@@ -88,7 +88,7 @@ class Login extends React.Component {
   };
 
   render() {
-
+    // This is weirdly redirecting on privateRoute urls
     if (this.props.verify === true) {
       return (
         <Redirect to="/menu" />
